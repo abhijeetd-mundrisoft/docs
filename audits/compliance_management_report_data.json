@@ -1,0 +1,876 @@
+{
+  "Audit Summary": [
+    {
+      "Standard": "GDPR",
+      "Control / Item": "Right to erasure (partial operational path exists): user deletion workflow removes user record plus related tokens/requests in course-forge-backend/src/main/java/com/mundrisoft/courseforge/service/UserService.java (deleteUser).",
+      "Status": "Implemented",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Implemented control"
+    },
+    {
+      "Standard": "GDPR",
+      "Control / Item": "Personal data collection is explicit through DTO contracts with validation annotations (e.g., UserRequestDto, UpdateBillingContactRequestDto, SetPasswordDto) under course-forge-backend/src/main/java/com/mundrisoft/courseforge/dto.",
+      "Status": "Implemented",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Implemented control"
+    },
+    {
+      "Standard": "GDPR",
+      "Control / Item": "Some retention logic exists for temporary/operational files and editor sessions via scheduled cleanup in FileCleanupService and SCORM session cleanup services.",
+      "Status": "Implemented",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Implemented control"
+    },
+    {
+      "Standard": "GDPR",
+      "Control / Item": "Data portability is implemented for course/package exports (course-forge-backend/src/main/java/com/mundrisoft/courseforge/export/controller/CourseExportController.java) but not clearly for subject-level personal data export.",
+      "Status": "Partial",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Partial control"
+    },
+    {
+      "Standard": "GDPR",
+      "Control / Item": "Data minimization is inconsistent: DTO validation exists, but broad collection of contact/profile fields is present across multiple DTOs without code-level purpose/necessity enforcement.",
+      "Status": "Partial",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Partial control"
+    },
+    {
+      "Standard": "GDPR",
+      "Control / Item": "Purpose limitation is partly implicit in service/controller flows, but there is no explicit code-level tagging/enforcement of processing purposes.",
+      "Status": "Partial",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Partial control"
+    },
+    {
+      "Standard": "GDPR",
+      "Control / Item": "Data inventory and access mapping are partially covered through DTO/entity/service usage, but there is no centralized record of what personal data is held, where stored, and who can access each category.",
+      "Status": "Partial",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Partial control"
+    },
+    {
+      "Standard": "GDPR",
+      "Control / Item": "Data retention exists in isolated flows (file/session cleanup, user deletion path) but not as a complete GDPR retention schedule per data category.",
+      "Status": "Partial",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Partial control"
+    },
+    {
+      "Standard": "GDPR",
+      "Control / Item": "Security controls are partially implemented (JWT auth, BCrypt, selective audit logging), but GDPR-specific safeguards such as pseudonymization/anonymization policy enforcement are not uniformly applied.",
+      "Status": "Partial",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Partial control"
+    },
+    {
+      "Standard": "GDPR",
+      "Control / Item": "Email consent-related mechanics exist in auth/verification flows, but explicit GDPR-grade marketing consent state and unsubscribe lifecycle governance are not fully modeled in current backend artifacts.",
+      "Status": "Partial",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Partial control"
+    },
+    {
+      "Standard": "GDPR",
+      "Control / Item": "Consent tracking controls are not evidenced in code (no clear consent entity/ledger/versioned consent capture flow found).",
+      "Status": "Missing",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Missing control"
+    },
+    {
+      "Standard": "GDPR",
+      "Control / Item": "Comprehensive GDPR subject-access/export endpoint for user/account/billing activity data is not evidenced.",
+      "Status": "Missing",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Missing control"
+    },
+    {
+      "Standard": "GDPR",
+      "Control / Item": "Centralized retention/deletion policy engine for persisted PII across all entities is not evidenced.",
+      "Status": "Missing",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Missing control"
+    },
+    {
+      "Standard": "GDPR",
+      "Control / Item": "No explicit minors/age-threshold (under 16) collection and parental consent control flow is evidenced in backend privacy controls.",
+      "Status": "Missing",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Missing control"
+    },
+    {
+      "Standard": "GDPR",
+      "Control / Item": "No dedicated record of processing activities (RoPA-style) is evidenced for GDPR accountability requirements.",
+      "Status": "Missing",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Missing control"
+    },
+    {
+      "Standard": "GDPR",
+      "Control / Item": "No explicit third-party processor governance register (processor list, purpose, DPA status, controls) is evidenced in code-level compliance assets.",
+      "Status": "Missing",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Missing control"
+    },
+    {
+      "Standard": "GDPR",
+      "Control / Item": "No international transfer control register (EEA to non-EEA transfer basis, safeguards, risk assessment references) is evidenced in compliance artifacts.",
+      "Status": "Missing",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Missing control"
+    },
+    {
+      "Standard": "GDPR",
+      "Control / Item": "Cookie-consent management backend support (opt-in categories, persistent opt-out, consent recall/change history) is not evidenced in current backend scope.",
+      "Status": "Missing",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Missing control"
+    },
+    {
+      "Standard": "GDPR",
+      "Control / Item": "Form-level consent metadata capture (privacy notice acceptance, correspondence opt-in choices, timestamped consent proof) is not comprehensively modeled across data collection endpoints.",
+      "Status": "Missing",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Missing control"
+    },
+    {
+      "Standard": "GDPR",
+      "Control / Item": "Breach-response readiness controls (72-hour supervisory notification workflow, affected-user notification workflow, incident evidence package) are not implemented as structured backend process modules.",
+      "Status": "Missing",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Missing control"
+    },
+    {
+      "Standard": "GDPR",
+      "Control / Item": "Privacy policy version acceptance tracking (which user accepted which policy version and when) is not evidenced as a dedicated compliance control.",
+      "Status": "Missing",
+      "Risk (if applicable)": "",
+      "Notes": "GDPR Missing control"
+    },
+    {
+      "Standard": "SOC2",
+      "Control / Item": "Authentication token validation exists via JWT utility and interceptor (JwtUtil, JwtInterceptor, WebConfig).",
+      "Status": "Implemented",
+      "Risk (if applicable)": "",
+      "Notes": "SOC2 Implemented control"
+    },
+    {
+      "Standard": "SOC2",
+      "Control / Item": "Password hashing with BCrypt is configured and used (SecurityConfig password encoder; usage in auth/user service flows).",
+      "Status": "Implemented",
+      "Risk (if applicable)": "",
+      "Notes": "SOC2 Implemented control"
+    },
+    {
+      "Standard": "SOC2",
+      "Control / Item": "Audit event mechanism exists (UserAccessEvent + AuditTrailListener) and at least one controller publishes audit events (UserController).",
+      "Status": "Implemented",
+      "Risk (if applicable)": "",
+      "Notes": "SOC2 Implemented control"
+    },
+    {
+      "Standard": "SOC2",
+      "Control / Item": "Basic health monitoring exposure exists through Actuator health endpoint in application.properties and application-prod.properties.",
+      "Status": "Implemented",
+      "Risk (if applicable)": "",
+      "Notes": "SOC2 Implemented control"
+    },
+    {
+      "Standard": "SOC2",
+      "Control / Item": "Access control is split/inconsistent: Spring Security filter chains permit all (SecurityConfig), while auth enforcement is mainly custom interceptor/manual checks.",
+      "Status": "Partial",
+      "Risk (if applicable)": "",
+      "Notes": "SOC2 Partial control"
+    },
+    {
+      "Standard": "SOC2",
+      "Control / Item": "RBAC exists but is uneven: isolated @PreAuthorize and manual role checks in controllers/services, not uniformly enforced through a centralized policy model.",
+      "Status": "Partial",
+      "Risk (if applicable)": "",
+      "Notes": "SOC2 Partial control"
+    },
+    {
+      "Standard": "SOC2",
+      "Control / Item": "Audit logging coverage appears limited to selected actions; no repository-wide evidence of comprehensive security/audit trail for all critical data changes.",
+      "Status": "Partial",
+      "Risk (if applicable)": "",
+      "Notes": "SOC2 Partial control"
+    },
+    {
+      "Standard": "SOC2",
+      "Control / Item": "Evidence of Redis caching controls is missing because Redis integration itself is not present (no Redis client/config usage found).",
+      "Status": "Missing",
+      "Risk (if applicable)": "",
+      "Notes": "SOC2 Missing control"
+    },
+    {
+      "Standard": "SOC2",
+      "Control / Item": "Evidence of Riak storage controls is missing because Riak integration itself is not present (no Riak usage found).",
+      "Status": "Missing",
+      "Risk (if applicable)": "",
+      "Notes": "SOC2 Missing control"
+    },
+    {
+      "Standard": "SOC2",
+      "Control / Item": "Centralized security monitoring instrumentation (e.g., broad metrics/tracing/alert hooks) is not clearly evidenced beyond health endpoint and application logs.",
+      "Status": "Missing",
+      "Risk (if applicable)": "",
+      "Notes": "SOC2 Missing control"
+    },
+    {
+      "Standard": "ISO27001",
+      "Control / Item": "Password protection control is implemented with BCrypt (SecurityConfig + auth/user service encoding calls).",
+      "Status": "Implemented",
+      "Risk (if applicable)": "",
+      "Notes": "ISO27001 Implemented control"
+    },
+    {
+      "Standard": "ISO27001",
+      "Control / Item": "JWT signatures are cryptographically validated using HS256 in JwtUtil.",
+      "Status": "Implemented",
+      "Risk (if applicable)": "",
+      "Notes": "ISO27001 Implemented control"
+    },
+    {
+      "Standard": "ISO27001",
+      "Control / Item": "TLS usage is configured for SMTP (smtp.ssl.enabled=true, TLS protocol settings in application property files).",
+      "Status": "Implemented",
+      "Risk (if applicable)": "",
+      "Notes": "ISO27001 Implemented control"
+    },
+    {
+      "Standard": "ISO27001",
+      "Control / Item": "Encryption practice is mixed: strong password hashing exists, but symmetric utility uses hardcoded key and AES/ECB mode in EncryptionUtil.",
+      "Status": "Partial",
+      "Risk (if applicable)": "",
+      "Notes": "ISO27001 Partial control"
+    },
+    {
+      "Standard": "ISO27001",
+      "Control / Item": "Secure configuration is partial: production profile reduces verbosity and limits actuator exposure, but insecure/unsafe defaults remain in config set (e.g., DB useSSL=false, ddl-auto=update).",
+      "Status": "Partial",
+      "Risk (if applicable)": "",
+      "Notes": "ISO27001 Partial control"
+    },
+    {
+      "Standard": "ISO27001",
+      "Control / Item": "Risk controls are partially documented in code comments and selective checks, but not uniformly codified across all sensitive flows.",
+      "Status": "Partial",
+      "Risk (if applicable)": "",
+      "Notes": "ISO27001 Partial control"
+    },
+    {
+      "Standard": "ISO27001",
+      "Control / Item": "Secrets management is not implemented in a compliant code pattern: numerous secrets/credentials/API keys are directly present in application.properties and application-prod.properties.",
+      "Status": "Missing",
+      "Risk (if applicable)": "",
+      "Notes": "ISO27001 Missing control"
+    },
+    {
+      "Standard": "ISO27001",
+      "Control / Item": "No code evidence of key rotation/revocation lifecycle for JWT secrets/API secrets.",
+      "Status": "Missing",
+      "Risk (if applicable)": "",
+      "Notes": "ISO27001 Missing control"
+    },
+    {
+      "Standard": "ISO27001",
+      "Control / Item": "No code evidence of systematic field-level encryption policy for sensitive persisted business/PII data.",
+      "Status": "Missing",
+      "Risk (if applicable)": "",
+      "Notes": "ISO27001 Missing control"
+    },
+    {
+      "Standard": "GLOBAL",
+      "Control / Item": "Risk Item",
+      "Status": "Risk",
+      "Risk (if applicable)": "Hardcoded secrets and credentials in config files (spring.datasource.password, jwt.secret, OpenAI keys, SMTP password, ZeptoMail key, Stripe keys) create credential exposure and compromise risk.",
+      "Notes": "Cross-standard risk"
+    },
+    {
+      "Standard": "GLOBAL",
+      "Control / Item": "Risk Item",
+      "Status": "Risk",
+      "Risk (if applicable)": "Authorization model risk: SecurityConfig permits all requests at filter-chain level, with enforcement moved to custom interceptor/manual checks, increasing bypass/misconfiguration risk.",
+      "Notes": "Cross-standard risk"
+    },
+    {
+      "Standard": "GLOBAL",
+      "Control / Item": "Risk Item",
+      "Status": "Risk",
+      "Risk (if applicable)": "Potential sensitive-data logging risk: request-associated values (e.g., imageUrl, sessionId, search criteria) and exception message propagation appear in controller logging/response paths.",
+      "Notes": "Cross-standard risk"
+    },
+    {
+      "Standard": "GLOBAL",
+      "Control / Item": "Risk Item",
+      "Status": "Risk",
+      "Risk (if applicable)": "Cryptographic weakness risk from EncryptionUtil hardcoded AES key and AES/ECB/PKCS5Padding usage.",
+      "Notes": "Cross-standard risk"
+    },
+    {
+      "Standard": "GLOBAL",
+      "Control / Item": "Risk Item",
+      "Status": "Risk",
+      "Risk (if applicable)": "Data subject rights coverage risk: deletion exists for user path, but comprehensive personal-data portability and consent lifecycle evidence is not present.",
+      "Notes": "Cross-standard risk"
+    },
+    {
+      "Standard": "GLOBAL",
+      "Control / Item": "Risk Item",
+      "Status": "Risk",
+      "Risk (if applicable)": "Assurance gap risk for cache/NoSQL controls because Redis/Riak control implementation is absent in code.",
+      "Notes": "Cross-standard risk"
+    },
+    {
+      "Standard": "GLOBAL",
+      "Control / Item": "Risk Item",
+      "Status": "Risk",
+      "Risk (if applicable)": "GDPR governance risk: missing centralized processor/international transfer controls can expose the organization to cross-border compliance violations.",
+      "Notes": "Cross-standard risk"
+    },
+    {
+      "Standard": "GLOBAL",
+      "Control / Item": "Risk Item",
+      "Status": "Risk",
+      "Risk (if applicable)": "Consent evidence risk: absence of structured cookie/form/privacy-policy consent logs may weaken legal defensibility during audits or complaints.",
+      "Notes": "Cross-standard risk"
+    },
+    {
+      "Standard": "GLOBAL",
+      "Control / Item": "Risk Item",
+      "Status": "Risk",
+      "Risk (if applicable)": "Incident response risk: without breach workflow orchestration and notification tracking, 72-hour GDPR notification obligations may be missed.",
+      "Notes": "Cross-standard risk"
+    },
+    {
+      "Standard": "GLOBAL",
+      "Control / Item": "Requires infrastructure or policy validation: whether repository secrets are overridden by runtime secret managers and not used in deployed environments.",
+      "Status": "Requires Validation",
+      "Risk (if applicable)": "",
+      "Notes": "Requires infrastructure or policy validation"
+    },
+    {
+      "Standard": "GLOBAL",
+      "Control / Item": "Requires infrastructure or policy validation: production network controls around actuator and API endpoints (private access, WAF/API gateway rules).",
+      "Status": "Requires Validation",
+      "Risk (if applicable)": "",
+      "Notes": "Requires infrastructure or policy validation"
+    },
+    {
+      "Standard": "GLOBAL",
+      "Control / Item": "Requires infrastructure or policy validation: log pipeline encryption, retention, RBAC, redaction, and SIEM forwarding controls.",
+      "Status": "Requires Validation",
+      "Risk (if applicable)": "",
+      "Notes": "Requires infrastructure or policy validation"
+    },
+    {
+      "Standard": "GLOBAL",
+      "Control / Item": "Requires infrastructure or policy validation: database/storage encryption at rest, backup encryption, and KMS/HSM governance.",
+      "Status": "Requires Validation",
+      "Risk (if applicable)": "",
+      "Notes": "Requires infrastructure or policy validation"
+    },
+    {
+      "Standard": "GLOBAL",
+      "Control / Item": "Requires infrastructure or policy validation: formal consent governance/process may exist outside application code (legal/policy/workflow systems).",
+      "Status": "Requires Validation",
+      "Risk (if applicable)": "",
+      "Notes": "Requires infrastructure or policy validation"
+    },
+    {
+      "Standard": "GLOBAL",
+      "Control / Item": "Requires infrastructure or policy validation: incident monitoring/alerting stack may exist outside this repository.",
+      "Status": "Requires Validation",
+      "Risk (if applicable)": "",
+      "Notes": "Requires infrastructure or policy validation"
+    },
+    {
+      "Standard": "GLOBAL",
+      "Control / Item": "Requires infrastructure or policy validation: whether a separate legal/compliance system maintains RoPA, processor DPAs, and transfer impact assessments outside this repository.",
+      "Status": "Requires Validation",
+      "Risk (if applicable)": "",
+      "Notes": "Requires infrastructure or policy validation"
+    },
+    {
+      "Standard": "GLOBAL",
+      "Control / Item": "Requires infrastructure or policy validation: whether frontend/web platform already implements GDPR cookie banner mechanics with backend consent persistence not represented here.",
+      "Status": "Requires Validation",
+      "Risk (if applicable)": "",
+      "Notes": "Requires infrastructure or policy validation"
+    },
+    {
+      "Standard": "GLOBAL",
+      "Control / Item": "Requires infrastructure or policy validation: whether formal incident response runbooks and regulatory notification workflows are implemented in SOC/ITSM tools external to codebase.",
+      "Status": "Requires Validation",
+      "Risk (if applicable)": "",
+      "Notes": "Requires infrastructure or policy validation"
+    }
+  ],
+  "Design Plan": [
+    {
+      "Issue": "GDPR Partial: Data portability only covers course/package exports, not subject-level personal data export",
+      "Root Cause": "Export implementation is domain-specific (CourseExportController/export services) and there is no unified data-subject aggregation service spanning user, billing, auth, and usage repositories.",
+      "Solution Summary": "Add a GDPR portability module with DataPortabilityController (GET /v1/privacy/me/export), DataPortabilityService, and repository adapters. Use async export orchestration (job table + signed download URL) and DTO-based s…",
+      "Code Changes (short)": "Controller: new DataPortabilityController secured with @PreAuthorize(\"isAuthenticated()\"); Service: DataPortabilityService.buildExport(userId) pulls from UserRepository, BillingContactRepository, ApiUsageRepository, etc…",
+      "Data Changes": "DB: add privacy_export_jobs (id, user_id, status, expires_at, checksum); Redis: cache export job progress with TTL (e.g., 24h) to avoid polling DB hot paths; Riak: optional object bucket for large export artifact chunks…",
+      "Security Improvements": "Require fresh JWT + optional step-up check before export generation, sign download links, enforce one-user access boundary, and audit each export request/result.",
+      "Compliance Mapping": "GDPR Art. 20 (Data Portability), SOC2 CC6/CC7 (access and processing control), ISO 27001 A.5/A.8 (information access and handling)"
+    },
+    {
+      "Issue": "GDPR Partial: Data minimization is inconsistent across DTOs",
+      "Root Cause": "DTOs validate format but not necessity; controllers accept broad payloads without purpose-scoped field policies, and services do not enforce context-aware field whitelists.",
+      "Solution Summary": "Introduce purpose-scoped request models and validation groups (@Validated(CreateProfile.class) etc.). Add a DataMinimizationPolicyService enforcing allowed fields per endpoint purpose and role.",
+      "Code Changes (short)": "Controller: replace generic DTOs with purpose-specific DTOs (BillingContactUpdateDto, TenantOnboardingDto, etc.); Service: add validateAllowedFields(purpose, payload) before persistence; Config: add custom ConstraintVal…",
+      "Data Changes": "DB: no mandatory schema change, but optionally split rarely used sensitive attributes into separate table with strict access path; Redis: cache minimization policy map keyed by endpoint+role with short TTL.",
+      "Security Improvements": "Reduce attack surface from over-posting/mass assignment, enforce strict JSON property binding (FAIL_ON_UNKNOWN_PROPERTIES=true for sensitive endpoints), and reject unnecessary PII ingestion.",
+      "Compliance Mapping": "GDPR Art. 5(1)(c) Data Minimization, SOC2 CC3/CC6, ISO 27001 A.8 (information classification/handling)"
+    },
+    {
+      "Issue": "GDPR Partial: Purpose limitation is implicit, not explicit/enforced",
+      "Root Cause": "Processing purpose is embedded in business logic and not represented as a first-class policy attribute in API/service layers.",
+      "Solution Summary": "Add purpose-tag propagation from API to service (ProcessingPurpose enum). Enforce via AOP interceptor (@RequiresPurpose) and policy matrix service.",
+      "Code Changes (short)": "Controller: annotate endpoints with @RequiresPurpose(Purpose.BILLING_CONTACT_UPDATE); Service: accept ProcessingContext with purpose and actor; Aspect: block unauthorized purpose/data combinations before method executio…",
+      "Data Changes": "DB: add processing_purpose and legal_basis columns to audit records; Redis: cache purpose policy matrix and invalidate on policy change; Riak: include purpose metadata in object headers for immutable audit context.",
+      "Security Improvements": "Centralized purpose checks prevent function creep, improve traceability, and harden against unauthorized secondary use of collected data.",
+      "Compliance Mapping": "GDPR Art. 5(1)(b) Purpose Limitation, SOC2 CC2/CC7, ISO 27001 A.5/A.8"
+    },
+    {
+      "Issue": "GDPR Missing: Consent tracking ledger/versioning not implemented",
+      "Root Cause": "No consent domain model, no evented consent capture endpoint, and no versioned policy references tied to user actions.",
+      "Solution Summary": "Implement ConsentController + ConsentService with versioned consent records (policy_version, purpose, status, timestamp, source_ip, user_agent). Use append-only consent events and immutable hash chain for integrity.",
+      "Code Changes (short)": "Controller: POST /v1/privacy/consents and GET /v1/privacy/consents; Service: recordConsent(command) and withdrawConsent(...); DAO: ConsentRepository; add @PreAuthorize(\"isAuthenticated()\") and service-level ownership ch…",
+      "Data Changes": "DB: new user_consents and consent_events tables with unique index (user_id,purpose,policy_version); Redis: cache current consent state per user/purpose TTL 15m for fast policy checks; Riak: store consent event snapshots…",
+      "Security Improvements": "Sign consent payload digest, enforce write-once event records, and include consent status check in business flows before processing optional personal data.",
+      "Compliance Mapping": "GDPR Art. 6/7 (lawful basis and consent), SOC2 CC6/CC8, ISO 27001 A.5/A.8/A.12"
+    },
+    {
+      "Issue": "GDPR Missing: Comprehensive subject-access endpoint not implemented",
+      "Root Cause": "No DSAR orchestration layer; data access remains fragmented by bounded contexts and endpoint ownership.",
+      "Solution Summary": "Add DSAR APIs (/v1/privacy/me/access-report) producing machine-readable + human-readable reports. Orchestrate with service fan-out and standardized mappers.",
+      "Code Changes (short)": "Controller: DataSubjectAccessController; Service: DsarAggregationService; DAO: repository adapters returning scoped projections; add request throttling and asynchronous job processing.",
+      "Data Changes": "DB: dsar_requests table for status, SLA clock, and fulfillment logs; Redis: DSAR workflow state TTL and idempotency keys; Riak: archive generated reports with retention policy metadata.",
+      "Security Improvements": "Strong requester verification, request anti-replay, per-user scoping, signed report artifacts, and complete DSAR audit trail.",
+      "Compliance Mapping": "GDPR Art. 15 (Right of Access), SOC2 CC6/CC7, ISO 27001 A.5/A.8"
+    },
+    {
+      "Issue": "GDPR Missing: Centralized retention/deletion policy engine for PII",
+      "Root Cause": "Retention is implemented in isolated services (file/session cleanup) without global policy registry and entity-level enforcement.",
+      "Solution Summary": "Implement retention policy engine with declarative rules (RetentionPolicy), scheduled executor, and deletion/anonymization handlers per entity type.",
+      "Code Changes (short)": "Config: RetentionPolicyConfig loads policy from DB/YAML; Service: RetentionEngineService.run(); DAO: retention queries per repository; add @Scheduled orchestrator + dead-letter handling.",
+      "Data Changes": "DB: retention_policies and retention_execution_log; Redis: lock keys (SETNX) for singleton scheduler and per-batch checkpoints TTL; Riak: use bucket-level lifecycle tags and delete markers.",
+      "Security Improvements": "Deterministic expiry handling, reduced stale-PII risk, tamper-evident execution logs, and controlled purge workflows with dual-control for sensitive domains.",
+      "Compliance Mapping": "GDPR Art. 5(1)(e) Storage Limitation & Art. 17, SOC2 CC8, ISO 27001 A.8/A.12"
+    },
+    {
+      "Issue": "SOC2 Partial: Access control split between permitAll filter chain and custom interceptor/manual checks",
+      "Root Cause": "Spring Security is not the single enforcement point; authorization logic is duplicated in interceptors/controllers, creating policy drift.",
+      "Solution Summary": "Move to SecurityFilterChain-first enforcement: deny-by-default, JWT auth filter (OncePerRequestFilter), and standardized exception handling (AuthenticationEntryPoint, AccessDeniedHandler).",
+      "Code Changes (short)": "Config: replace .anyRequest().permitAll() with explicit permit list + .anyRequest().authenticated(); Security: add JwtAuthenticationFilter populating SecurityContext; Controller/Service: remove manual bearer parsing and…",
+      "Data Changes": "Redis: maintain token jti blacklist/session-state cache TTL to support revocation and logout; DB optional: revoked_tokens for durable revocation.",
+      "Security Improvements": "Single policy plane, fewer bypass paths, consistent 401/403 behavior, and stricter endpoint hardening.",
+      "Compliance Mapping": "SOC2 CC6 (logical access), ISO 27001 A.5/A.8, GDPR Art. 32"
+    },
+    {
+      "Issue": "SOC2 Partial: RBAC exists but is uneven and not centralized",
+      "Root Cause": "Role checks are mixed (@PreAuthorize in few places, manual role parsing elsewhere) and no unified authorization policy service exists.",
+      "Solution Summary": "Enable method security globally and standardize role/attribute checks with SpEL policies + custom PermissionEvaluator.",
+      "Code Changes (short)": "Config: @EnableMethodSecurity; Service/Controller: annotate privileged operations (@PreAuthorize(\"hasRole('SUPER_ADMIN') or @perm.canAccessWorkspace(authentication,#workspaceId)\")); add PermissionEvaluator and workspace…",
+      "Data Changes": "DB: normalize role-permission matrix tables (roles, permissions, role_permissions); Redis: cache permission graph by role with cache invalidation on admin changes.",
+      "Security Improvements": "Consistent least-privilege authorization, context-aware access checks, and reduction of ad-hoc role parsing bugs.",
+      "Compliance Mapping": "SOC2 CC6.1/CC6.2, ISO 27001 A.5 (access control), GDPR Art. 32"
+    },
+    {
+      "Issue": "SOC2 Partial: Audit logging coverage is limited to selected actions",
+      "Root Cause": "Audit event publication is manual and sparse; no cross-cutting mechanism captures high-risk CRUD/auth/privilege actions consistently.",
+      "Solution Summary": "Implement audit as cross-cutting concern using AOP (@Auditable) plus security event listeners and persistence-backed audit store.",
+      "Code Changes (short)": "Create @Auditable(action=\"...\"); Aspect captures actor, target, before/after hash, request ID; Service layer annotates critical methods; add async AuditWriter with SLF4J structured JSON output.",
+      "Data Changes": "DB: audit_log table partitioned by date; Redis: short-term stream/buffer for burst writes; Riak: immutable archive bucket for long-retention audit records.",
+      "Security Improvements": "Tamper-resistant logs (hash chain/signature), full traceability for sensitive operations, and easier incident reconstruction.",
+      "Compliance Mapping": "SOC2 CC7/CC8, ISO 27001 A.12 (logging/monitoring), GDPR Art. 30/32"
+    },
+    {
+      "Issue": "SOC2 Missing: Redis caching controls absent because Redis integration is absent",
+      "Root Cause": "No cache architecture was implemented for security-sensitive state (revocation, rate limiting, ephemeral risk controls).",
+      "Solution Summary": "Add Redis with Spring Data Redis for token revocation, rate limiting, and ephemeral policy caches. Define cache namespaces and security TTL standards.",
+      "Code Changes (short)": "Config: RedisConfig (LettuceConnectionFactory, RedisTemplate, cache manager); Security: TokenRevocationService using jti keys; Filter: rate-limit filter reading Redis counters.",
+      "Data Changes": "Redis keys: auth:revoked:{jti} TTL=token-exp, rl:login:{ip} sliding window TTL, policy:rbac:{role} TTL=15m; DB remains source of truth; Riak unaffected for this control.",
+      "Security Improvements": "Immediate revocation capability, brute-force mitigation, reduced stale authorization decisions.",
+      "Compliance Mapping": "SOC2 CC6/CC7, ISO 27001 A.8/A.12, GDPR Art. 32"
+    },
+    {
+      "Issue": "SOC2 Missing: Riak storage controls absent because Riak integration is absent",
+      "Root Cause": "No object-storage strategy exists for immutable security/compliance artifacts (audit snapshots, DSAR archives, consent snapshots).",
+      "Solution Summary": "Introduce Riak adapter layer for append-only compliance artifacts with bucket types enforcing replication and conflict policies.",
+      "Code Changes (short)": "Create RiakClientConfig and RiakComplianceStore service; write through service APIs only (storeAuditSnapshot, storeExportArtifact); maintain repository abstraction to avoid controller-level storage calls.",
+      "Data Changes": "Riak buckets: audit-archive, privacy-export, consent-snapshot; store encrypted payload + metadata (owner, purpose, retention_until); Redis caches object pointers for fast retrieval; DB stores index/reference records.",
+      "Security Improvements": "Durable immutable archival path, separation of operational DB from compliance evidence, and safer long-term artifact retention.",
+      "Compliance Mapping": "SOC2 CC8/CC9, ISO 27001 A.8/A.12, GDPR Art. 30/32"
+    },
+    {
+      "Issue": "SOC2 Missing: Centralized monitoring/tracing instrumentation not implemented",
+      "Root Cause": "Monitoring is mostly health endpoint + app logs; no standardized metrics, tracing, or alert-grade security telemetry emission.",
+      "Solution Summary": "Adopt Micrometer + Spring Boot Actuator metrics and structured security telemetry pipeline. Add security KPIs and incident-oriented events.",
+      "Code Changes (short)": "Config: expose metrics endpoint internally; Service/Filter: publish counters (auth_failures, token_revocations, access_denied); add HandlerInterceptor for latency/status tagging and correlation-id propagation.",
+      "Data Changes": "Redis: optional rolling counters for near-real-time anomaly checks; Riak: store periodic immutable monitoring snapshots for audit evidence; DB: optional security_incidents table.",
+      "Security Improvements": "Faster detection of abuse/misconfiguration, measurable control effectiveness, and better forensic readiness.",
+      "Compliance Mapping": "SOC2 CC7 (monitoring), ISO 27001 A.12/A.16, GDPR Art. 32"
+    },
+    {
+      "Issue": "ISO27001 Partial: Encryption practice is mixed (BCrypt good, AES utility weak)",
+      "Root Cause": "Symmetric crypto utility uses hardcoded key and ECB mode, likely introduced as convenience without centralized crypto policy.",
+      "Solution Summary": "Replace with envelope encryption using AES-GCM (Cipher.getInstance(\"AES/GCM/NoPadding\")) and key material from KMS/Vault. Standardize via CryptoService bean.",
+      "Code Changes (short)": "Service: CryptoService.encrypt/decrypt with random IV per record and auth tag; Config: inject active key id from env/secret manager; replace direct EncryptionUtil calls in auth/user services.",
+      "Data Changes": "DB/Riak: store {keyId, iv, ciphertext, tag} per encrypted field/object; Redis: never store plaintext secrets; cache only encrypted blobs or opaque references with TTL.",
+      "Security Improvements": "Confidentiality + integrity protection, removal of static key exposure, and cryptographic agility via key ids.",
+      "Compliance Mapping": "ISO 27001 A.8/A.10, SOC2 CC6.6, GDPR Art. 32"
+    },
+    {
+      "Issue": "ISO27001 Partial: Secure configuration has unsafe defaults (useSSL=false, ddl-auto=update)",
+      "Root Cause": "Environment hardening boundaries are not enforced by profile-specific config governance and startup validation.",
+      "Solution Summary": "Implement secure-by-default profile policy with startup guard rails (@ConfigurationProperties + validator) that fail fast on unsafe production settings.",
+      "Code Changes (short)": "Config: SecurityBaselineProperties + @PostConstruct checks (if(prod && !dbSsl) throw); Security config: tighten actuator and CORS defaults; remove dangerous fallbacks from prod properties.",
+      "Data Changes": "DB: enforce TLS connection parameters and cert validation; Redis/Riak clients configured with TLS and auth in production profiles.",
+      "Security Improvements": "Prevents insecure runtime drift, ensures encrypted transport to data stores, and blocks accidental weak deployments.",
+      "Compliance Mapping": "ISO 27001 A.5/A.8/A.12, SOC2 CC5/CC6, GDPR Art. 32"
+    },
+    {
+      "Issue": "ISO27001 Partial: Risk controls are selective, not codified uniformly",
+      "Root Cause": "Security controls are spread across ad-hoc checks and comments; no policy-as-code baseline across modules.",
+      "Solution Summary": "Create security control framework: baseline annotations, centralized validators, and CI policy checks for critical controls.",
+      "Code Changes (short)": "Add @SensitiveOperation + interceptor enforcing MFA freshness/role checks where required; add centralized SecurityPolicyService; add build-time checks (e.g., ArchUnit) enforcing controller/service security rules.",
+      "Data Changes": "Redis: store control state (e.g., risk flags/session trust level) with TTL; Riak: archive periodic policy compliance snapshots.",
+      "Security Improvements": "Consistent risk treatment, fewer control gaps in new modules, and auditable enforcement semantics.",
+      "Compliance Mapping": "ISO 27001 A.5/A.6/A.12, SOC2 CC3/CC6/CC8"
+    },
+    {
+      "Issue": "ISO27001 Missing: Secrets management pattern not compliant (secrets in properties)",
+      "Root Cause": "Application reads static secrets from repo-managed property files instead of runtime secret sources.",
+      "Solution Summary": "Externalize all secrets to Vault/KMS/secret manager and inject via environment or Spring Cloud Vault; keep properties as placeholders only.",
+      "Code Changes (short)": "Config: replace literal secrets with ${...} references; add SecretProvider abstraction for JWT/DB/API keys; startup check rejects default/test secret values in non-dev profiles.",
+      "Data Changes": "DB: rotate credentials and move to short-lived auth where possible; Redis/Riak credentials sourced from secret manager and rotated regularly.",
+      "Security Improvements": "Eliminates credential leakage from SCM, supports rotation, and reduces blast radius of compromised artifacts.",
+      "Compliance Mapping": "ISO 27001 A.5/A.8, SOC2 CC6.1/CC6.6, GDPR Art. 32"
+    },
+    {
+      "Issue": "ISO27001 Missing: No key rotation/revocation lifecycle for JWT/API secrets",
+      "Root Cause": "Single static key model is used; JWT validation does not support multi-key (kid) or revocation lifecycle.",
+      "Solution Summary": "Implement key management lifecycle: JWKS-style key ring, active/previous keys, scheduled rotation, and emergency revocation.",
+      "Code Changes (short)": "Security: add JwtKeyProvider supporting kid; token minting adds header kid; validation resolves key by kid; add admin/internal endpoint to mark keys revoked and trigger cache invalidation.",
+      "Data Changes": "Redis: keys:active, keys:revoked:{kid} with TTL; DB: security_keys table (kid, status, created_at, revoked_at); Riak: immutable key-rotation audit records.",
+      "Security Improvements": "Supports seamless rotation, fast revocation after compromise, and reduced long-term key exposure risk.",
+      "Compliance Mapping": "ISO 27001 A.10/A.12, SOC2 CC6/CC7, GDPR Art. 32"
+    },
+    {
+      "Issue": "ISO27001 Missing: No systematic field-level encryption for sensitive persisted data",
+      "Root Cause": "PII is stored in plaintext in operational entities; encryption is not enforced by persistence layer policy.",
+      "Solution Summary": "Apply transparent field encryption with JPA AttributeConverter or service-level crypto wrappers for marked fields (@EncryptedField).",
+      "Code Changes (short)": "Entity/DAO: annotate sensitive fields (email/phone/address/tokens) and bind converters; Service: decrypt only at boundary where needed; add masking in DTO mappers for non-privileged responses.",
+      "Data Changes": "DB: migrate existing plaintext to encrypted columns via controlled migration job; Redis: store only masked/minimal PII; Riak: encrypt object payload before write and maintain keyId metadata.",
+      "Security Improvements": "Data-at-rest hardening for PII, reduced impact from DB dumps, and stronger compartmentalization of sensitive values.",
+      "Compliance Mapping": "ISO 27001 A.8/A.10, SOC2 CC6.6, GDPR Art. 32"
+    },
+    {
+      "Issue": "Cross-cutting Risk: Sensitive data appears in logs and exception messages",
+      "Root Cause": "Controllers log request-associated values and concatenate raw exception messages into API responses; no centralized redaction policy.",
+      "Solution Summary": "Adopt structured logging with redaction filters and standardized error translation (@ControllerAdvice) returning sanitized error codes.",
+      "Code Changes (short)": "Logging: add MaskingPatternLayout/MDC redaction strategy; Web: global exception handler maps internal exceptions to safe payloads; remove direct logging of URLs/session IDs/PII fields in controllers.",
+      "Data Changes": "Redis: optional temporary correlation-id map for incident tracing without storing raw payload; Riak: long-term audit logs store masked fields only.",
+      "Security Improvements": "Prevents PII/token leakage via logs/responses, improves incident handling without exposing sensitive context.",
+      "Compliance Mapping": "GDPR Art. 5(1)(f)/32, SOC2 CC6/CC7, ISO 27001 A.12"
+    },
+    {
+      "Issue": "GDPR Missing: Personal data inventory and access registry is not centralized",
+      "Root Cause": "Personal data usage is spread across DTOs/entities/services without a single inventory mapping data category, storage location, access scope, and processor context.",
+      "Solution Summary": "Implement a Data Inventory Registry module that maps personal/sensitive data fields to source endpoints, storage systems, retention period, and authorized roles; keep registry queryable for audits.",
+      "Code Changes (short)": "Add DataInventoryController (internal/compliance), DataInventoryService, and metadata scanners for DTO/entity annotations; add role-restricted endpoints to view inventory and access map.",
+      "Data Changes": "DB: data_inventory_catalog table with fields for data_type, sensitivity, purpose, storage_system, retention_rule, access_roles, processor_reference; Redis optional cache for lookup.",
+      "Security Improvements": "Improves accountability, least-privilege reviews, and rapid impact analysis during incidents or data-subject requests.",
+      "Compliance Mapping": "GDPR accountability/Art. 30 readiness, SOC2 CC3/CC6, ISO 27001 A.5/A.8"
+    },
+    {
+      "Issue": "GDPR Missing: Minors (under 16) consent and age-gating controls are not implemented",
+      "Root Cause": "Registration/data collection flows do not model age verification or parental authorization conditions.",
+      "Solution Summary": "Add age-threshold validation and parental consent workflow for minors, including status transitions and verification evidence retention.",
+      "Code Changes (short)": "Update relevant registration/profile DTOs and controllers with age fields/flags; add MinorConsentService and guard checks before processing optional personal data.",
+      "Data Changes": "DB: user_age_verification and parental_consent_records tables; Redis for pending verification/session TTL.",
+      "Security Improvements": "Reduces unlawful processing risk for minors and enforces stricter controls over sensitive user segments.",
+      "Compliance Mapping": "GDPR Art. 8 (children consent), SOC2 CC6, ISO 27001 A.8"
+    },
+    {
+      "Issue": "GDPR Missing: Cookie and form consent lifecycle controls are not comprehensively implemented",
+      "Root Cause": "Consent capture is not standardized for cookie categories, form privacy notices, correspondence opt-in, and consent withdrawal history.",
+      "Solution Summary": "Implement Consent Preference Center backend APIs for cookie categories, form consent proof, correspondence preferences, and withdrawal/change history.",
+      "Code Changes (short)": "Add ConsentPreferenceController and FormConsentService; enforce consent checks in data-collection endpoints and messaging workflows.",
+      "Data Changes": "DB: consent_preferences, form_consent_events, correspondence_preferences; Redis for active consent cache with durable DB source.",
+      "Security Improvements": "Creates auditable proof of consent state and persistent opt-out enforcement.",
+      "Compliance Mapping": "GDPR consent transparency/opt-in expectations, SOC2 CC7/CC8, ISO 27001 A.12"
+    },
+    {
+      "Issue": "GDPR Missing: Third-party processor and international transfer governance is not modeled",
+      "Root Cause": "Backend compliance artifacts do not maintain processor catalog, transfer basis, safeguards, or review status.",
+      "Solution Summary": "Add Processor Governance module to register third-party processors, transfer regions, legal basis, DPA status, and transfer safeguards.",
+      "Code Changes (short)": "Add ProcessorController and TransferGovernanceService with policy validation hooks for integrations that handle personal data.",
+      "Data Changes": "DB: processors, processor_assessments, transfer_mechanisms, transfer_risk_reviews tables; optional Riak archival of signed assessment documents.",
+      "Security Improvements": "Strengthens vendor oversight and cross-border transfer accountability.",
+      "Compliance Mapping": "GDPR Chapter V transfer governance, SOC2 CC3/CC9, ISO 27001 supplier relationship controls"
+    },
+    {
+      "Issue": "GDPR Missing: Breach response and 72-hour notification workflow is not implemented",
+      "Root Cause": "No structured incident workflow exists for breach classification, authority notification timelines, affected-user communication, and corrective action tracking.",
+      "Solution Summary": "Implement Breach Response Orchestration module with incident states, timer-based SLA checks, notification templates, and evidence bundle generation.",
+      "Code Changes (short)": "Add BreachIncidentController and BreachResponseService; integrate security event triggers and escalation hooks.",
+      "Data Changes": "DB: breach_incidents, breach_notifications, breach_actions, breach_impacted_subjects tables; Redis timer queues for SLA reminders.",
+      "Security Improvements": "Improves regulatory response readiness and repeatable incident handling.",
+      "Compliance Mapping": "GDPR Art. 33/34, SOC2 CC7/CC8, ISO 27001 incident management controls"
+    }
+  ],
+  "Estimation": [
+    {
+      "Issue": "GDPR Partial: Data portability only covers course/package exports, not subject-level personal data export",
+      "Tasks (comma separated)": "Design `PersonalDataExportDto` contract and export schema (JSON + optional CSV bundle), Build `DataPortabilityController` and async export job APIs, Implement `DataPortabilityService` with fan-out across user/billing/auth/usage repositories, Add export job persistence, status polling, and signed download URL flow, Add audit events for request/start/complete/download actions, Add integration tests for ownership, payload completeness, and expiry behavior",
+      "Effort (S/M/L/XL)": "L",
+      "Complexity Reason": "Cross-domain data aggregation and async orchestration are required; backward compatibility must be preserved while introducing new privacy APIs and download workflow.",
+      "Impacted Components": "Controller, Service, DAO, Redis, Riak, Security Config",
+      "Dependencies": "Export artifact storage decision (DB filesystem vs Riak), Token/signing strategy for download links, Infra capacity for large export generation",
+      "Parallelizable (Yes/No)": "Yes"
+    },
+    {
+      "Issue": "GDPR Partial: Data minimization is inconsistent across DTOs",
+      "Tasks (comma separated)": "Inventory current DTOs and classify fields by legal/business necessity, Create purpose-scoped DTO variants and validation groups, Implement `DataMinimizationPolicyService` for endpoint-role field allowlists, Harden JSON binding for sensitive endpoints (reject unknown/excess fields), Refactor affected controllers/services to new DTO contracts, Add regression tests for over-posting and blocked fields",
+      "Effort (S/M/L/XL)": "L",
+      "Complexity Reason": "High controller/service touch points and high regression risk due to request-contract changes across many endpoints.",
+      "Impacted Components": "Controller, Service, DAO, Security Config",
+      "Dependencies": "Product/legal sign-off on minimum data set per endpoint, API contract compatibility plan for existing clients",
+      "Parallelizable (Yes/No)": "Yes"
+    },
+    {
+      "Issue": "GDPR Partial: Purpose limitation is implicit, not explicit/enforced",
+      "Tasks (comma separated)": "Define `ProcessingPurpose` enum and purpose-policy matrix, Implement `@RequiresPurpose` annotation and AOP enforcement, Propagate processing context from controller to service methods, Add audit metadata (`purpose`, `legal_basis`) to trail records, Add policy caching and invalidation flow",
+      "Effort (S/M/L/XL)": "L",
+      "Complexity Reason": "Requires cross-cutting pattern changes and method signature updates in service layer; impacts many existing flows.",
+      "Impacted Components": "Controller, Service, DAO, Redis, Riak, Security Config",
+      "Dependencies": "Policy ownership model (who defines and updates purpose matrix), Coordination with audit logging model",
+      "Parallelizable (Yes/No)": "Yes"
+    },
+    {
+      "Issue": "GDPR Missing: Consent tracking ledger/versioning not implemented",
+      "Tasks (comma separated)": "Design consent domain model (`user_consents`, `consent_events`), Implement `ConsentController` for capture/read/withdraw endpoints, Implement append-only consent event write path with integrity hash, Add consent state cache for runtime policy checks, Integrate consent checks into optional-data processing services, Add test coverage for versioning and consent withdrawal semantics",
+      "Effort (S/M/L/XL)": "L",
+      "Complexity Reason": "New privacy subsystem with write-once event semantics and downstream integration into existing business actions.",
+      "Impacted Components": "Controller, Service, DAO, Redis, Riak, Security Config",
+      "Dependencies": "Legal policy versioning conventions, Event immutability approach and archival requirement",
+      "Parallelizable (Yes/No)": "Yes"
+    },
+    {
+      "Issue": "GDPR Missing: Comprehensive subject-access endpoint not implemented",
+      "Tasks (comma separated)": "Define DSAR response model (machine-readable + human-readable export), Create `DataSubjectAccessController` and DSAR request workflow, Implement `DsarAggregationService` with repository projections, Add throttling, idempotency, and async fulfillment status APIs, Persist DSAR request lifecycle and fulfillment audit records, Add e2e tests for access boundaries and anti-replay controls",
+      "Effort (S/M/L/XL)": "L",
+      "Complexity Reason": "Broad aggregation and strict access assurance needed; similar complexity to portability with additional SLA/state tracking.",
+      "Impacted Components": "Controller, Service, DAO, Redis, Riak, Security Config",
+      "Dependencies": "Shared data model decisions with portability module, Operational SLA and queueing strategy",
+      "Parallelizable (Yes/No)": "Yes"
+    },
+    {
+      "Issue": "GDPR Missing: Centralized retention/deletion policy engine for PII",
+      "Tasks (comma separated)": "Define retention policy model and rule schema, Implement `RetentionEngineService` with scheduled execution and dry-run mode, Add entity-specific deletion/anonymization handlers, Add execution logs, error dead-letter handling, and rerun support, Implement distributed lock/checkpointing for singleton scheduler, Backfill policy coverage tests for major PII entities",
+      "Effort (S/M/L/XL)": "XL",
+      "Complexity Reason": "Cross-entity destructive processing with high data-loss risk, strong idempotency requirements, and operational rollback concerns.",
+      "Impacted Components": "Service, DAO, Redis, Riak, Security Config",
+      "Dependencies": "Data ownership map across all PII tables/entities, Operational approval workflow for deletion policies, Backup/restore validation before rollout",
+      "Parallelizable (Yes/No)": "No"
+    },
+    {
+      "Issue": "SOC2 Partial: Access control split between permitAll filter chain and custom interceptor/manual checks",
+      "Tasks (comma separated)": "Refactor `SecurityFilterChain` to deny-by-default and explicit public allowlist, Implement `JwtAuthenticationFilter` (`OncePerRequestFilter`) and populate `SecurityContext`, Add centralized auth error handling (`AuthenticationEntryPoint`, `AccessDeniedHandler`), Remove manual bearer parsing from controllers/services, Migrate existing interceptor-only checks to Spring Security primitives, Run endpoint-by-endpoint regression security tests",
+      "Effort (S/M/L/XL)": "L",
+      "Complexity Reason": "High blast radius authentication change; every endpoint behavior (401/403/public) must be revalidated.",
+      "Impacted Components": "Controller, Service, Security Config, Redis, DAO",
+      "Dependencies": "Complete public endpoint inventory, Coordination with RBAC standardization item",
+      "Parallelizable (Yes/No)": "No"
+    },
+    {
+      "Issue": "SOC2 Partial: RBAC exists but is uneven and not centralized",
+      "Tasks (comma separated)": "Enable method security globally and define authorization conventions, Implement custom `PermissionEvaluator` and workspace-scoped checks, Replace manual role checks with `@PreAuthorize` across critical methods, Normalize role-permission model and repository access patterns, Add permission-cache invalidation strategy and tests",
+      "Effort (S/M/L/XL)": "L",
+      "Complexity Reason": "Touches many service/controller methods and requires careful compatibility with existing role semantics.",
+      "Impacted Components": "Controller, Service, DAO, Redis, Security Config",
+      "Dependencies": "Depends on access-control refactor baseline, Role model cleanup and data seeding strategy",
+      "Parallelizable (Yes/No)": "No"
+    },
+    {
+      "Issue": "SOC2 Partial: Audit logging coverage is limited to selected actions",
+      "Tasks (comma separated)": "Define critical action catalog and audit schema, Implement `@Auditable` annotation and AOP capture layer, Create async `AuditWriter` with structured JSON and correlation IDs, Persist audit records to DB and optional immutable archive, Instrument auth/privilege/data-change flows, Add tamper-evidence/hash-chain verification tests",
+      "Effort (S/M/L/XL)": "L",
+      "Complexity Reason": "Cross-cutting instrumentation with performance sensitivity and schema design requirements for long-term storage.",
+      "Impacted Components": "Controller, Service, DAO, Redis, Riak, Security Config",
+      "Dependencies": "Final action taxonomy from security/compliance, Storage sizing and retention policy alignment",
+      "Parallelizable (Yes/No)": "Yes"
+    },
+    {
+      "Issue": "SOC2 Missing: Redis caching controls absent because Redis integration is absent",
+      "Tasks (comma separated)": "Add Spring Data Redis dependency and `RedisConfig`, Implement token revocation cache (`jti`) and logout invalidation, Implement login/API rate-limiting filter backed by Redis counters, Add policy/permission cache namespaces and TTL standards, Add resilience/fallback behavior when Redis is unavailable, Add integration tests against Redis test container",
+      "Effort (S/M/L/XL)": "M",
+      "Complexity Reason": "Net-new infra integration but bounded scope if limited to revocation/rate-limit/policy cache primitives.",
+      "Impacted Components": "Service, Redis, Security Config, Controller",
+      "Dependencies": "Redis instance provisioning and network/security setup, Operational monitoring for cache availability",
+      "Parallelizable (Yes/No)": "Yes"
+    },
+    {
+      "Issue": "SOC2 Missing: Riak storage controls absent because Riak integration is absent",
+      "Tasks (comma separated)": "Introduce Riak client configuration and health integration, Implement `RiakComplianceStore` abstraction and bucket conventions, Build write/read adapters for audit/privacy artifacts, Add metadata model (owner, purpose, retention, checksum), Integrate encryption before Riak write path, Add failure/retry and archive retrieval tests",
+      "Effort (S/M/L/XL)": "L",
+      "Complexity Reason": "Greenfield NoSQL integration with serialization, metadata, and reliability concerns; requires operational readiness.",
+      "Impacted Components": "Service, DAO, Riak, Redis, Security Config",
+      "Dependencies": "Riak cluster availability and bucket policy setup, Crypto/key management dependency for encrypted payloads",
+      "Parallelizable (Yes/No)": "Yes"
+    },
+    {
+      "Issue": "SOC2 Missing: Centralized monitoring/tracing instrumentation not implemented",
+      "Tasks (comma separated)": "Enable Micrometer metrics and structured telemetry baseline, Instrument auth/security counters and API latency/status metrics, Add correlation-id propagation interceptor/filter, Define alertable SLO/SLI metrics and tags, Add dashboards/alerts hooks for security events, Add load tests to validate overhead",
+      "Effort (S/M/L/XL)": "M",
+      "Complexity Reason": "Implementation is straightforward but requires alignment with runtime observability stack and naming conventions.",
+      "Impacted Components": "Controller, Service, Security Config, Redis, Riak",
+      "Dependencies": "Monitoring backend availability (Prometheus/APM/SIEM), Alert routing ownership",
+      "Parallelizable (Yes/No)": "Yes"
+    },
+    {
+      "Issue": "ISO27001 Partial: Encryption practice is mixed (BCrypt good, AES utility weak)",
+      "Tasks (comma separated)": "Design `CryptoService` with AES-GCM envelope format, Integrate key-id aware encryption/decryption APIs, Replace legacy `EncryptionUtil` usages in auth/user flows, Add cryptographic test vectors and backward compatibility migration strategy, Add key rotation support hooks in crypto layer",
+      "Effort (S/M/L/XL)": "L",
+      "Complexity Reason": "Security-critical refactor with backward compatibility constraints for previously encrypted values.",
+      "Impacted Components": "Service, DAO, Security Config, Riak, Redis",
+      "Dependencies": "Secret management/KMS availability, Data migration plan for old encrypted payloads",
+      "Parallelizable (Yes/No)": "No"
+    },
+    {
+      "Issue": "ISO27001 Partial: Secure configuration has unsafe defaults (useSSL=false, ddl-auto=update)",
+      "Tasks (comma separated)": "Create secure baseline config validator and fail-fast startup checks, Harden prod properties (DB TLS, actuator, CORS, SQL logging levels), Add profile-specific configuration tests, Document and enforce non-dev forbidden config values",
+      "Effort (S/M/L/XL)": "S",
+      "Complexity Reason": "Mostly configuration and guardrail logic with limited code churn.",
+      "Impacted Components": "Security Config, DAO, Redis, Riak",
+      "Dependencies": "Infra cert setup for DB/Redis/Riak TLS, Deployment pipeline update for secure env vars",
+      "Parallelizable (Yes/No)": "Yes"
+    },
+    {
+      "Issue": "ISO27001 Partial: Risk controls are selective, not codified uniformly",
+      "Tasks (comma separated)": "Define security control baseline and annotation model (`@SensitiveOperation`), Implement enforcement interceptor/policy service, Add CI architecture/security policy checks (e.g., ArchUnit rules), Refactor high-risk endpoints/services to baseline controls, Add control conformance reporting",
+      "Effort (S/M/L/XL)": "L",
+      "Complexity Reason": "Framework-level changes plus broad adoption effort across existing modules.",
+      "Impacted Components": "Controller, Service, Security Config, Redis, Riak",
+      "Dependencies": "Security governance ownership for policy definitions, Team adoption and code-review checklist updates",
+      "Parallelizable (Yes/No)": "Yes"
+    },
+    {
+      "Issue": "ISO27001 Missing: Secrets management pattern not compliant (secrets in properties)",
+      "Tasks (comma separated)": "Replace hardcoded properties with env/secret references, Implement `SecretProvider` abstraction and startup validation, Integrate Vault/KMS/secret manager client for runtime retrieval, Rotate exposed credentials and invalidate old secrets, Update deployment manifests/pipelines for secret injection",
+      "Effort (S/M/L/XL)": "L",
+      "Complexity Reason": "App and infra changes are tightly coupled; credential rotation must be coordinated with zero downtime.",
+      "Impacted Components": "Security Config, Service, DAO, Redis, Riak",
+      "Dependencies": "Secret manager provisioning and IAM policies, Credential rotation windows with external providers (DB, SMTP, Stripe, etc.)",
+      "Parallelizable (Yes/No)": "No"
+    },
+    {
+      "Issue": "ISO27001 Missing: No key rotation/revocation lifecycle for JWT/API secrets",
+      "Tasks (comma separated)": "Design key registry model (`kid`, status, activation, revocation timestamps), Implement `JwtKeyProvider` supporting active/previous keys, Add token minting with `kid` and validation by key id, Implement admin/internal key revoke/rollover workflow, Add cache invalidation and propagation for revocation events, Add rotation runbook and automated rotation tests",
+      "Effort (S/M/L/XL)": "L",
+      "Complexity Reason": "Authentication core behavior changes and requires safe rollout for existing active tokens.",
+      "Impacted Components": "Security Config, Service, DAO, Redis, Riak, Controller",
+      "Dependencies": "Depends on secrets/KMS integration, Client/session compatibility strategy during cutover",
+      "Parallelizable (Yes/No)": "No"
+    },
+    {
+      "Issue": "ISO27001 Missing: No systematic field-level encryption for sensitive persisted data",
+      "Tasks (comma separated)": "Identify sensitive fields across entities and repositories, Implement JPA `AttributeConverter` or encrypted-field abstraction, Apply encryption/decryption to entity persistence path, Build migration job to re-encrypt existing plaintext data, Update query/index strategy for encrypted fields, Add masking in DTO mappers and privileged-read checks",
+      "Effort (S/M/L/XL)": "XL",
+      "Complexity Reason": "Large data-model impact, migration complexity, query behavior changes, and high backward compatibility risk.",
+      "Impacted Components": "DAO, Service, Controller, Security Config, Redis, Riak",
+      "Dependencies": "Crypto service and key lifecycle readiness, Data migration window and rollback strategy, Performance validation for encrypted fields",
+      "Parallelizable (Yes/No)": "No"
+    },
+    {
+      "Issue": "Cross-cutting Risk: Sensitive data appears in logs and exception messages",
+      "Tasks (comma separated)": "Define log redaction policy (PII/token/session patterns), Implement centralized redaction/masking in logging pipeline, Add global exception translator with sanitized API error model, Refactor controllers to remove raw payload/exception message logging, Add tests for redaction and safe error responses",
+      "Effort (S/M/L/XL)": "M",
+      "Complexity Reason": "Cross-cutting but technically straightforward; main effort is endpoint cleanup and regression validation.",
+      "Impacted Components": "Controller, Service, Security Config, Riak, Redis",
+      "Dependencies": "Agreement on masking rules and observability format, Coordination with audit logging implementation",
+      "Parallelizable (Yes/No)": "Yes"
+    },
+    {
+      "Issue": "GDPR Missing: Personal data inventory and access registry is not centralized",
+      "Tasks (comma separated)": "Define inventory schema and ownership model, Implement inventory APIs and service, Tag DTO/entity fields by data class/sensitivity, Build storage/access mapping views, Add governance reports and tests",
+      "Effort (S/M/L/XL)": "L",
+      "Complexity Reason": "Cross-cutting metadata capture across many modules with governance validation dependency.",
+      "Impacted Components": "Controller, Service, DAO, Security Config",
+      "Dependencies": "Compliance owner approval for taxonomy, Data classification policy finalization",
+      "Parallelizable (Yes/No)": "Yes"
+    },
+    {
+      "Issue": "GDPR Missing: Minors (under 16) consent and age-gating controls are not implemented",
+      "Tasks (comma separated)": "Add age verification fields/validation, Implement parental consent workflow, Block processing without valid consent state, Add audit trail and expiry handling, Add integration/regression tests",
+      "Effort (S/M/L/XL)": "L",
+      "Complexity Reason": "Changes user onboarding and consent states with legal-policy sensitivity and compatibility impact.",
+      "Impacted Components": "Controller, Service, DAO, Security Config, Redis",
+      "Dependencies": "Legal policy for age verification, UX/frontend flow alignment",
+      "Parallelizable (Yes/No)": "No"
+    },
+    {
+      "Issue": "GDPR Missing: Cookie and form consent lifecycle controls are not comprehensively implemented",
+      "Tasks (comma separated)": "Implement consent preference APIs, Capture form-level consent evidence, Add opt-in/opt-out/withdraw endpoints, Integrate consent checks into messaging/forms, Add consent reporting and tests",
+      "Effort (S/M/L/XL)": "L",
+      "Complexity Reason": "Requires coordination with frontend behavior and persistent consent history enforcement.",
+      "Impacted Components": "Controller, Service, DAO, Redis, Security Config",
+      "Dependencies": "Frontend cookie/banner implementation alignment, Policy text/version governance",
+      "Parallelizable (Yes/No)": "Yes"
+    },
+    {
+      "Issue": "GDPR Missing: Third-party processor and international transfer governance is not modeled",
+      "Tasks (comma separated)": "Create processor and transfer schema, Build processor registry APIs, Capture transfer safeguards and assessments, Link processors to data flows, Add periodic review workflow",
+      "Effort (S/M/L/XL)": "M",
+      "Complexity Reason": "Mostly governance data modeling with lower runtime risk but depends on policy inputs.",
+      "Impacted Components": "Controller, Service, DAO",
+      "Dependencies": "Legal/compliance input for transfer basis, Vendor inventory completeness",
+      "Parallelizable (Yes/No)": "Yes"
+    },
+    {
+      "Issue": "GDPR Missing: Breach response and 72-hour notification workflow is not implemented",
+      "Tasks (comma separated)": "Design incident state machine, Implement breach incident APIs, Add timer-based 72-hour escalation logic, Build authority/user notification tracking, Create post-incident action records",
+      "Effort (S/M/L/XL)": "L",
+      "Complexity Reason": "Workflow orchestration and SLA-driven operations require reliable state transitions and alerting.",
+      "Impacted Components": "Controller, Service, DAO, Redis, Security Config",
+      "Dependencies": "SOC/incident-management process integration, Notification channel ownership",
+      "Parallelizable (Yes/No)": "No"
+    }
+  ],
+  "Executive Summary": [
+    {
+      "Category": "Total Issues Count",
+      "Details": "40"
+    },
+    {
+      "Category": "Missing Controls Count",
+      "Details": "17"
+    },
+    {
+      "Category": "High Risk Areas",
+      "Details": "Hardcoded secrets and credentials in config files (spring.datasource.password, jwt.secret, OpenAI keys, SMTP password, ZeptoMail key, Stripe keys) create credential exposure and compromise risk. | Authorization model risk: SecurityConfig permits all requests at filter-chain level, with enforcement moved to custom interceptor/manual checks, increasing bypass/misconfiguration risk. | Potential sensitive-data logging risk: request-associated values (e.g., imageUrl, sessionId, search criteria) and exception message propagation appear in controller logging/response paths. | Cryptographic weakness risk from EncryptionUtil hardcoded AES key and AES/ECB/PKCS5Padding usage. | Data subject rights coverage risk: deletion exists for user path, but comprehensive personal-data portability and consent lifecycle evidence is not present. | Assurance gap risk for cache/NoSQL controls because Redis/Riak control implementation is absent in code. | GDPR governance risk: missing centralized processor/international transfer controls can expose the organization to cross-border compliance violations. | Consent evidence risk: absence of structured cookie/form/privacy-policy consent logs may weaken legal defensibility during audits or complaints. | Incident response risk: without breach workflow orchestration and notification tracking, 72-hour GDPR notification obligations may be missed."
+    },
+    {
+      "Category": "Quick Wins (Small effort items)",
+      "Details": "ISO27001 Partial: Secure configuration has unsafe defaults (useSSL=false, ddl-auto=update)"
+    },
+    {
+      "Category": "Critical Path Items",
+      "Details": "SOC2 Partial: Access control split between permitAll filter chain and custom interceptor/manual checks | SOC2 Partial: RBAC exists but is uneven and not centralized | ISO27001 Missing: Secrets management pattern not compliant (secrets in properties) | ISO27001 Missing: No key rotation/revocation lifecycle for JWT/API secrets | ISO27001 Partial: Encryption practice is mixed (BCrypt good, AES utility weak) | ISO27001 Missing: No systematic field-level encryption for sensitive persisted data | GDPR Missing: Centralized retention/deletion policy engine for PII | GDPR Missing: Minors (under 16) consent and age-gating controls are not implemented | GDPR Missing: Breach response and 72-hour notification workflow is not implemented"
+    },
+    {
+      "Category": "Overall Maturity",
+      "Details": "Low"
+    },
+    {
+      "Category": "Estimated Timeline",
+      "Details": "Single-team sequential: ~28-36 weeks. With 3 parallel streams (Security Core, Privacy/Data Rights, Platform/Observability): ~14-18 weeks including integration hardening."
+    }
+  ]
+}

@@ -1,0 +1,614 @@
+[
+  {
+    "issue": "GDPR Partial: Data portability only covers course/package exports, not subject-level personal data export",
+    "tasks": [
+      "Design `PersonalDataExportDto` contract and export schema (JSON + optional CSV bundle)",
+      "Build `DataPortabilityController` and async export job APIs",
+      "Implement `DataPortabilityService` with fan-out across user/billing/auth/usage repositories",
+      "Add export job persistence, status polling, and signed download URL flow",
+      "Add audit events for request/start/complete/download actions",
+      "Add integration tests for ownership, payload completeness, and expiry behavior"
+    ],
+    "effort": "Large (1–2 weeks)",
+    "complexity_reason": "Cross-domain data aggregation and async orchestration are required; backward compatibility must be preserved while introducing new privacy APIs and download workflow.",
+    "impacted_components": [
+      "Controller",
+      "Service",
+      "DAO",
+      "Redis",
+      "Riak",
+      "Security Config"
+    ],
+    "dependencies": [
+      "Export artifact storage decision (DB filesystem vs Riak)",
+      "Token/signing strategy for download links",
+      "Infra capacity for large export generation"
+    ],
+    "parallelizable": true
+  },
+  {
+    "issue": "GDPR Partial: Data minimization is inconsistent across DTOs",
+    "tasks": [
+      "Inventory current DTOs and classify fields by legal/business necessity",
+      "Create purpose-scoped DTO variants and validation groups",
+      "Implement `DataMinimizationPolicyService` for endpoint-role field allowlists",
+      "Harden JSON binding for sensitive endpoints (reject unknown/excess fields)",
+      "Refactor affected controllers/services to new DTO contracts",
+      "Add regression tests for over-posting and blocked fields"
+    ],
+    "effort": "Large (1–2 weeks)",
+    "complexity_reason": "High controller/service touch points and high regression risk due to request-contract changes across many endpoints.",
+    "impacted_components": [
+      "Controller",
+      "Service",
+      "DAO",
+      "Security Config"
+    ],
+    "dependencies": [
+      "Product/legal sign-off on minimum data set per endpoint",
+      "API contract compatibility plan for existing clients"
+    ],
+    "parallelizable": true
+  },
+  {
+    "issue": "GDPR Partial: Purpose limitation is implicit, not explicit/enforced",
+    "tasks": [
+      "Define `ProcessingPurpose` enum and purpose-policy matrix",
+      "Implement `@RequiresPurpose` annotation and AOP enforcement",
+      "Propagate processing context from controller to service methods",
+      "Add audit metadata (`purpose`, `legal_basis`) to trail records",
+      "Add policy caching and invalidation flow"
+    ],
+    "effort": "Large (1–2 weeks)",
+    "complexity_reason": "Requires cross-cutting pattern changes and method signature updates in service layer; impacts many existing flows.",
+    "impacted_components": [
+      "Controller",
+      "Service",
+      "DAO",
+      "Redis",
+      "Riak",
+      "Security Config"
+    ],
+    "dependencies": [
+      "Policy ownership model (who defines and updates purpose matrix)",
+      "Coordination with audit logging model"
+    ],
+    "parallelizable": true
+  },
+  {
+    "issue": "GDPR Missing: Consent tracking ledger/versioning not implemented",
+    "tasks": [
+      "Design consent domain model (`user_consents`, `consent_events`)",
+      "Implement `ConsentController` for capture/read/withdraw endpoints",
+      "Implement append-only consent event write path with integrity hash",
+      "Add consent state cache for runtime policy checks",
+      "Integrate consent checks into optional-data processing services",
+      "Add test coverage for versioning and consent withdrawal semantics"
+    ],
+    "effort": "Large (1–2 weeks)",
+    "complexity_reason": "New privacy subsystem with write-once event semantics and downstream integration into existing business actions.",
+    "impacted_components": [
+      "Controller",
+      "Service",
+      "DAO",
+      "Redis",
+      "Riak",
+      "Security Config"
+    ],
+    "dependencies": [
+      "Legal policy versioning conventions",
+      "Event immutability approach and archival requirement"
+    ],
+    "parallelizable": true
+  },
+  {
+    "issue": "GDPR Missing: Comprehensive subject-access endpoint not implemented",
+    "tasks": [
+      "Define DSAR response model (machine-readable + human-readable export)",
+      "Create `DataSubjectAccessController` and DSAR request workflow",
+      "Implement `DsarAggregationService` with repository projections",
+      "Add throttling, idempotency, and async fulfillment status APIs",
+      "Persist DSAR request lifecycle and fulfillment audit records",
+      "Add e2e tests for access boundaries and anti-replay controls"
+    ],
+    "effort": "Large (1–2 weeks)",
+    "complexity_reason": "Broad aggregation and strict access assurance needed; similar complexity to portability with additional SLA/state tracking.",
+    "impacted_components": [
+      "Controller",
+      "Service",
+      "DAO",
+      "Redis",
+      "Riak",
+      "Security Config"
+    ],
+    "dependencies": [
+      "Shared data model decisions with portability module",
+      "Operational SLA and queueing strategy"
+    ],
+    "parallelizable": true
+  },
+  {
+    "issue": "GDPR Missing: Centralized retention/deletion policy engine for PII",
+    "tasks": [
+      "Define retention policy model and rule schema",
+      "Implement `RetentionEngineService` with scheduled execution and dry-run mode",
+      "Add entity-specific deletion/anonymization handlers",
+      "Add execution logs, error dead-letter handling, and rerun support",
+      "Implement distributed lock/checkpointing for singleton scheduler",
+      "Backfill policy coverage tests for major PII entities"
+    ],
+    "effort": "XL (2+ weeks)",
+    "complexity_reason": "Cross-entity destructive processing with high data-loss risk, strong idempotency requirements, and operational rollback concerns.",
+    "impacted_components": [
+      "Service",
+      "DAO",
+      "Redis",
+      "Riak",
+      "Security Config"
+    ],
+    "dependencies": [
+      "Data ownership map across all PII tables/entities",
+      "Operational approval workflow for deletion policies",
+      "Backup/restore validation before rollout"
+    ],
+    "parallelizable": false
+  },
+  {
+    "issue": "SOC2 Partial: Access control split between permitAll filter chain and custom interceptor/manual checks",
+    "tasks": [
+      "Refactor `SecurityFilterChain` to deny-by-default and explicit public allowlist",
+      "Implement `JwtAuthenticationFilter` (`OncePerRequestFilter`) and populate `SecurityContext`",
+      "Add centralized auth error handling (`AuthenticationEntryPoint`, `AccessDeniedHandler`)",
+      "Remove manual bearer parsing from controllers/services",
+      "Migrate existing interceptor-only checks to Spring Security primitives",
+      "Run endpoint-by-endpoint regression security tests"
+    ],
+    "effort": "Large (1–2 weeks)",
+    "complexity_reason": "High blast radius authentication change; every endpoint behavior (401/403/public) must be revalidated.",
+    "impacted_components": [
+      "Controller",
+      "Service",
+      "Security Config",
+      "Redis",
+      "DAO"
+    ],
+    "dependencies": [
+      "Complete public endpoint inventory",
+      "Coordination with RBAC standardization item"
+    ],
+    "parallelizable": false
+  },
+  {
+    "issue": "SOC2 Partial: RBAC exists but is uneven and not centralized",
+    "tasks": [
+      "Enable method security globally and define authorization conventions",
+      "Implement custom `PermissionEvaluator` and workspace-scoped checks",
+      "Replace manual role checks with `@PreAuthorize` across critical methods",
+      "Normalize role-permission model and repository access patterns",
+      "Add permission-cache invalidation strategy and tests"
+    ],
+    "effort": "Large (1–2 weeks)",
+    "complexity_reason": "Touches many service/controller methods and requires careful compatibility with existing role semantics.",
+    "impacted_components": [
+      "Controller",
+      "Service",
+      "DAO",
+      "Redis",
+      "Security Config"
+    ],
+    "dependencies": [
+      "Depends on access-control refactor baseline",
+      "Role model cleanup and data seeding strategy"
+    ],
+    "parallelizable": false
+  },
+  {
+    "issue": "SOC2 Partial: Audit logging coverage is limited to selected actions",
+    "tasks": [
+      "Define critical action catalog and audit schema",
+      "Implement `@Auditable` annotation and AOP capture layer",
+      "Create async `AuditWriter` with structured JSON and correlation IDs",
+      "Persist audit records to DB and optional immutable archive",
+      "Instrument auth/privilege/data-change flows",
+      "Add tamper-evidence/hash-chain verification tests"
+    ],
+    "effort": "Large (1–2 weeks)",
+    "complexity_reason": "Cross-cutting instrumentation with performance sensitivity and schema design requirements for long-term storage.",
+    "impacted_components": [
+      "Controller",
+      "Service",
+      "DAO",
+      "Redis",
+      "Riak",
+      "Security Config"
+    ],
+    "dependencies": [
+      "Final action taxonomy from security/compliance",
+      "Storage sizing and retention policy alignment"
+    ],
+    "parallelizable": true
+  },
+  {
+    "issue": "SOC2 Missing: Redis caching controls absent because Redis integration is absent",
+    "tasks": [
+      "Add Spring Data Redis dependency and `RedisConfig`",
+      "Implement token revocation cache (`jti`) and logout invalidation",
+      "Implement login/API rate-limiting filter backed by Redis counters",
+      "Add policy/permission cache namespaces and TTL standards",
+      "Add resilience/fallback behavior when Redis is unavailable",
+      "Add integration tests against Redis test container"
+    ],
+    "effort": "Medium (3–5 days)",
+    "complexity_reason": "Net-new infra integration but bounded scope if limited to revocation/rate-limit/policy cache primitives.",
+    "impacted_components": [
+      "Service",
+      "Redis",
+      "Security Config",
+      "Controller"
+    ],
+    "dependencies": [
+      "Redis instance provisioning and network/security setup",
+      "Operational monitoring for cache availability"
+    ],
+    "parallelizable": true
+  },
+  {
+    "issue": "SOC2 Missing: Riak storage controls absent because Riak integration is absent",
+    "tasks": [
+      "Introduce Riak client configuration and health integration",
+      "Implement `RiakComplianceStore` abstraction and bucket conventions",
+      "Build write/read adapters for audit/privacy artifacts",
+      "Add metadata model (owner, purpose, retention, checksum)",
+      "Integrate encryption before Riak write path",
+      "Add failure/retry and archive retrieval tests"
+    ],
+    "effort": "Large (1–2 weeks)",
+    "complexity_reason": "Greenfield NoSQL integration with serialization, metadata, and reliability concerns; requires operational readiness.",
+    "impacted_components": [
+      "Service",
+      "DAO",
+      "Riak",
+      "Redis",
+      "Security Config"
+    ],
+    "dependencies": [
+      "Riak cluster availability and bucket policy setup",
+      "Crypto/key management dependency for encrypted payloads"
+    ],
+    "parallelizable": true
+  },
+  {
+    "issue": "SOC2 Missing: Centralized monitoring/tracing instrumentation not implemented",
+    "tasks": [
+      "Enable Micrometer metrics and structured telemetry baseline",
+      "Instrument auth/security counters and API latency/status metrics",
+      "Add correlation-id propagation interceptor/filter",
+      "Define alertable SLO/SLI metrics and tags",
+      "Add dashboards/alerts hooks for security events",
+      "Add load tests to validate overhead"
+    ],
+    "effort": "Medium (3–5 days)",
+    "complexity_reason": "Implementation is straightforward but requires alignment with runtime observability stack and naming conventions.",
+    "impacted_components": [
+      "Controller",
+      "Service",
+      "Security Config",
+      "Redis",
+      "Riak"
+    ],
+    "dependencies": [
+      "Monitoring backend availability (Prometheus/APM/SIEM)",
+      "Alert routing ownership"
+    ],
+    "parallelizable": true
+  },
+  {
+    "issue": "ISO27001 Partial: Encryption practice is mixed (BCrypt good, AES utility weak)",
+    "tasks": [
+      "Design `CryptoService` with AES-GCM envelope format",
+      "Integrate key-id aware encryption/decryption APIs",
+      "Replace legacy `EncryptionUtil` usages in auth/user flows",
+      "Add cryptographic test vectors and backward compatibility migration strategy",
+      "Add key rotation support hooks in crypto layer"
+    ],
+    "effort": "Large (1–2 weeks)",
+    "complexity_reason": "Security-critical refactor with backward compatibility constraints for previously encrypted values.",
+    "impacted_components": [
+      "Service",
+      "DAO",
+      "Security Config",
+      "Riak",
+      "Redis"
+    ],
+    "dependencies": [
+      "Secret management/KMS availability",
+      "Data migration plan for old encrypted payloads"
+    ],
+    "parallelizable": false
+  },
+  {
+    "issue": "ISO27001 Partial: Secure configuration has unsafe defaults (useSSL=false, ddl-auto=update)",
+    "tasks": [
+      "Create secure baseline config validator and fail-fast startup checks",
+      "Harden prod properties (DB TLS, actuator, CORS, SQL logging levels)",
+      "Add profile-specific configuration tests",
+      "Document and enforce non-dev forbidden config values"
+    ],
+    "effort": "Small (1–2 days)",
+    "complexity_reason": "Mostly configuration and guardrail logic with limited code churn.",
+    "impacted_components": [
+      "Security Config",
+      "DAO",
+      "Redis",
+      "Riak"
+    ],
+    "dependencies": [
+      "Infra cert setup for DB/Redis/Riak TLS",
+      "Deployment pipeline update for secure env vars"
+    ],
+    "parallelizable": true
+  },
+  {
+    "issue": "ISO27001 Partial: Risk controls are selective, not codified uniformly",
+    "tasks": [
+      "Define security control baseline and annotation model (`@SensitiveOperation`)",
+      "Implement enforcement interceptor/policy service",
+      "Add CI architecture/security policy checks (e.g., ArchUnit rules)",
+      "Refactor high-risk endpoints/services to baseline controls",
+      "Add control conformance reporting"
+    ],
+    "effort": "Large (1–2 weeks)",
+    "complexity_reason": "Framework-level changes plus broad adoption effort across existing modules.",
+    "impacted_components": [
+      "Controller",
+      "Service",
+      "Security Config",
+      "Redis",
+      "Riak"
+    ],
+    "dependencies": [
+      "Security governance ownership for policy definitions",
+      "Team adoption and code-review checklist updates"
+    ],
+    "parallelizable": true
+  },
+  {
+    "issue": "ISO27001 Missing: Secrets management pattern not compliant (secrets in properties)",
+    "tasks": [
+      "Replace hardcoded properties with env/secret references",
+      "Implement `SecretProvider` abstraction and startup validation",
+      "Integrate Vault/KMS/secret manager client for runtime retrieval",
+      "Rotate exposed credentials and invalidate old secrets",
+      "Update deployment manifests/pipelines for secret injection"
+    ],
+    "effort": "Large (1–2 weeks)",
+    "complexity_reason": "App and infra changes are tightly coupled; credential rotation must be coordinated with zero downtime.",
+    "impacted_components": [
+      "Security Config",
+      "Service",
+      "DAO",
+      "Redis",
+      "Riak"
+    ],
+    "dependencies": [
+      "Secret manager provisioning and IAM policies",
+      "Credential rotation windows with external providers (DB, SMTP, Stripe, etc.)"
+    ],
+    "parallelizable": false
+  },
+  {
+    "issue": "ISO27001 Missing: No key rotation/revocation lifecycle for JWT/API secrets",
+    "tasks": [
+      "Design key registry model (`kid`, status, activation, revocation timestamps)",
+      "Implement `JwtKeyProvider` supporting active/previous keys",
+      "Add token minting with `kid` and validation by key id",
+      "Implement admin/internal key revoke/rollover workflow",
+      "Add cache invalidation and propagation for revocation events",
+      "Add rotation runbook and automated rotation tests"
+    ],
+    "effort": "Large (1–2 weeks)",
+    "complexity_reason": "Authentication core behavior changes and requires safe rollout for existing active tokens.",
+    "impacted_components": [
+      "Security Config",
+      "Service",
+      "DAO",
+      "Redis",
+      "Riak",
+      "Controller"
+    ],
+    "dependencies": [
+      "Depends on secrets/KMS integration",
+      "Client/session compatibility strategy during cutover"
+    ],
+    "parallelizable": false
+  },
+  {
+    "issue": "ISO27001 Missing: No systematic field-level encryption for sensitive persisted data",
+    "tasks": [
+      "Identify sensitive fields across entities and repositories",
+      "Implement JPA `AttributeConverter` or encrypted-field abstraction",
+      "Apply encryption/decryption to entity persistence path",
+      "Build migration job to re-encrypt existing plaintext data",
+      "Update query/index strategy for encrypted fields",
+      "Add masking in DTO mappers and privileged-read checks"
+    ],
+    "effort": "XL (2+ weeks)",
+    "complexity_reason": "Large data-model impact, migration complexity, query behavior changes, and high backward compatibility risk.",
+    "impacted_components": [
+      "DAO",
+      "Service",
+      "Controller",
+      "Security Config",
+      "Redis",
+      "Riak"
+    ],
+    "dependencies": [
+      "Crypto service and key lifecycle readiness",
+      "Data migration window and rollback strategy",
+      "Performance validation for encrypted fields"
+    ],
+    "parallelizable": false
+  },
+  {
+    "issue": "Cross-cutting Risk: Sensitive data appears in logs and exception messages",
+    "tasks": [
+      "Define log redaction policy (PII/token/session patterns)",
+      "Implement centralized redaction/masking in logging pipeline",
+      "Add global exception translator with sanitized API error model",
+      "Refactor controllers to remove raw payload/exception message logging",
+      "Add tests for redaction and safe error responses"
+    ],
+    "effort": "Medium (3–5 days)",
+    "complexity_reason": "Cross-cutting but technically straightforward; main effort is endpoint cleanup and regression validation.",
+    "impacted_components": [
+      "Controller",
+      "Service",
+      "Security Config",
+      "Riak",
+      "Redis"
+    ],
+    "dependencies": [
+      "Agreement on masking rules and observability format",
+      "Coordination with audit logging implementation"
+    ],
+    "parallelizable": true
+  },
+  {
+    "issue": "GDPR Missing: Personal data inventory and access registry is not centralized",
+    "tasks": [
+      "Define inventory schema and ownership model",
+      "Implement inventory APIs and service",
+      "Tag DTO/entity fields by data class/sensitivity",
+      "Build storage/access mapping views",
+      "Add governance reports and tests"
+    ],
+    "effort": "Large (1–2 weeks)",
+    "complexity_reason": "Cross-cutting metadata capture across many modules with governance validation dependency.",
+    "impacted_components": [
+      "Controller",
+      "Service",
+      "DAO",
+      "Security Config"
+    ],
+    "dependencies": [
+      "Compliance owner approval for taxonomy",
+      "Data classification policy finalization"
+    ],
+    "parallelizable": true
+  },
+  {
+    "issue": "GDPR Missing: Minors (under 16) consent and age-gating controls are not implemented",
+    "tasks": [
+      "Add age verification fields/validation",
+      "Implement parental consent workflow",
+      "Block processing without valid consent state",
+      "Add audit trail and expiry handling",
+      "Add integration/regression tests"
+    ],
+    "effort": "Large (1–2 weeks)",
+    "complexity_reason": "Changes user onboarding and consent states with legal-policy sensitivity and compatibility impact.",
+    "impacted_components": [
+      "Controller",
+      "Service",
+      "DAO",
+      "Security Config",
+      "Redis"
+    ],
+    "dependencies": [
+      "Legal policy for age verification",
+      "UX/frontend flow alignment"
+    ],
+    "parallelizable": false
+  },
+  {
+    "issue": "GDPR Missing: Cookie and form consent lifecycle controls are not comprehensively implemented",
+    "tasks": [
+      "Implement consent preference APIs",
+      "Capture form-level consent evidence",
+      "Add opt-in/opt-out/withdraw endpoints",
+      "Integrate consent checks into messaging/forms",
+      "Add consent reporting and tests"
+    ],
+    "effort": "Large (1–2 weeks)",
+    "complexity_reason": "Requires coordination with frontend behavior and persistent consent history enforcement.",
+    "impacted_components": [
+      "Controller",
+      "Service",
+      "DAO",
+      "Redis",
+      "Security Config"
+    ],
+    "dependencies": [
+      "Frontend cookie/banner implementation alignment",
+      "Policy text/version governance"
+    ],
+    "parallelizable": true
+  },
+  {
+    "issue": "GDPR Missing: Third-party processor and international transfer governance is not modeled",
+    "tasks": [
+      "Create processor and transfer schema",
+      "Build processor registry APIs",
+      "Capture transfer safeguards and assessments",
+      "Link processors to data flows",
+      "Add periodic review workflow"
+    ],
+    "effort": "Medium (3–5 days)",
+    "complexity_reason": "Mostly governance data modeling with lower runtime risk but depends on policy inputs.",
+    "impacted_components": [
+      "Controller",
+      "Service",
+      "DAO"
+    ],
+    "dependencies": [
+      "Legal/compliance input for transfer basis",
+      "Vendor inventory completeness"
+    ],
+    "parallelizable": true
+  },
+  {
+    "issue": "GDPR Missing: Breach response and 72-hour notification workflow is not implemented",
+    "tasks": [
+      "Design incident state machine",
+      "Implement breach incident APIs",
+      "Add timer-based 72-hour escalation logic",
+      "Build authority/user notification tracking",
+      "Create post-incident action records"
+    ],
+    "effort": "Large (1–2 weeks)",
+    "complexity_reason": "Workflow orchestration and SLA-driven operations require reliable state transitions and alerting.",
+    "impacted_components": [
+      "Controller",
+      "Service",
+      "DAO",
+      "Redis",
+      "Security Config"
+    ],
+    "dependencies": [
+      "SOC/incident-management process integration",
+      "Notification channel ownership"
+    ],
+    "parallelizable": false
+  },
+  {
+    "total_estimated_timeline": "Single-team sequential: ~28-36 weeks. With 3 parallel streams (Security Core, Privacy/Data Rights, Platform/Observability): ~14-18 weeks including integration hardening.",
+    "critical_path_items": [
+      "SOC2 Partial: Access control split between permitAll filter chain and custom interceptor/manual checks",
+      "SOC2 Partial: RBAC exists but is uneven and not centralized",
+      "ISO27001 Missing: Secrets management pattern not compliant (secrets in properties)",
+      "ISO27001 Missing: No key rotation/revocation lifecycle for JWT/API secrets",
+      "ISO27001 Partial: Encryption practice is mixed (BCrypt good, AES utility weak)",
+      "ISO27001 Missing: No systematic field-level encryption for sensitive persisted data",
+      "GDPR Missing: Centralized retention/deletion policy engine for PII",
+      "GDPR Missing: Minors (under 16) consent and age-gating controls are not implemented",
+      "GDPR Missing: Breach response and 72-hour notification workflow is not implemented"
+    ],
+    "quick_wins": [
+      "ISO27001 Partial: Secure configuration has unsafe defaults (useSSL=false, ddl-auto=update)",
+      "Cross-cutting Risk: Sensitive data appears in logs and exception messages",
+      "SOC2 Missing: Centralized monitoring/tracing instrumentation not implemented",
+      "SOC2 Missing: Redis caching controls absent because Redis integration is absent",
+      "GDPR Missing: Third-party processor and international transfer governance is not modeled"
+    ]
+  }
+]
