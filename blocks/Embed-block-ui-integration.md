@@ -40,6 +40,31 @@ or
 
 ---
 
+### Blocked words (optional server policy)
+
+The backend can reject embeds whose **raw input** or **normalized URL** contains configured substrings (e.g. vulgar or banned terms). This is **substring** matching after **URL-decoding**, case-insensitive.
+
+**Configuration** (`application.properties`)
+
+| Property | Meaning |
+| -------- | ------- |
+| `embed.resolve.blocked-words` | Comma-separated list of substrings to block (empty = disabled). Every non-empty term is used as-is (including single-character terms). |
+
+**Resolver behavior**
+
+* If a match is found, the API still returns **HTTP 200** with **`data.resolved: false`** and a generic **`reason`** (the server does not echo the matched word).
+* Typical message: `This URL is not allowed by content policy.`
+
+**UI**
+
+* Treat like any other `resolved: false` outcome; show `data.reason` to the user.
+
+**Caveat**
+
+* Substring rules can false-positive (e.g. a benign path segment containing a blocked substring, or a very short term such as a single letter). Prefer longer, specific phrases in the list when you need stricter matching.
+
+---
+
 ### Response (important)
 
 HTTP is **200** even when the URL cannot be embedded. Always inspect **`data.resolved`**.
@@ -82,7 +107,7 @@ HTTP is **200** even when the URL cannot be embedded. Always inspect **`data.res
     "reason": "URL resolves to a blocked network address",
     "input": "https://…",
     "originalUrl": null,
-    "embedUrl": null,
+    "embedUrl": null, 
     "title": null,
     "description": null,
     "thumbnail": null,
