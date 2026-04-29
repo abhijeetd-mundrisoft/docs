@@ -49,6 +49,11 @@ From a business perspective, it serves four connected goals:
 9. **SCORM Editor**
    - Enables upload of SCORM ZIP, slide-level text/media editing, preview serving, and downloadable export.
 
+10. **Course Export to SCORM**
+   - Enables direct export of authored courses into SCORM-compliant packages.
+   - Supports SCORM 1.2 and SCORM 2004 export formats.
+   - Preserves course hierarchy, supported block content, media assets, and learner navigation in exported output.
+
 ## C. Business Flow Mapping
 
 ### Flow 1: User Login and Workspace Eligibility
@@ -203,6 +208,28 @@ From a business perspective, it serves four connected goals:
   - **Input:** SCORM ZIP + edit operations.
   - **Output:** revised SCORM content and exportable edited package.
 
+### Flow 8: Course-to-SCORM Export
+- **Flow name:** Authoring course export to LMS-compatible SCORM package
+- **Step-by-step process:**
+  1. User requests export for an authored course.
+  2. System validates export type and export settings.
+  3. System validates course readiness for selected tracking behavior.
+  4. System prepares package in selected format (SCORM 1.2 or SCORM 2004).
+  5. System composes course lessons, supported content blocks, media, and manifest.
+  6. User downloads generated SCORM package.
+- **APIs involved:**
+  - `POST /export/course`
+  - `GET /export/types`
+  - `GET /export/history`
+- **Business rules applied:**
+  - Only supported SCORM formats are available for export.
+  - Existing request/response behavior remains backward compatible.
+  - Course structure and lesson sequencing must be preserved in exported package.
+  - Supported block content, media, and interactions should remain usable in LMS playback.
+- **Input -> Output transformation:**
+  - **Input:** course export request with target SCORM format and export preferences.
+  - **Output:** downloadable SCORM package suitable for LMS import.
+
 ## D. Business Rules
 
 1. **Account and Access Rules**
@@ -236,6 +263,9 @@ From a business perspective, it serves four connected goals:
    - Conversion/editor actions are constrained by file/session validity.
    - Downloads and exports are state-dependent.
    - Session-scoped preview access governs editable package exposure.
+  - Course export supports both SCORM 1.2 and SCORM 2004.
+  - Course export must preserve authored learning structure and supported block content in learner-facing output.
+  - Media and interactive content included in supported blocks should remain functional in exported packages.
 
 ## E. Data Meaning
 
@@ -298,6 +328,13 @@ From a business perspective, it serves four connected goals:
     - Slide identity and ordering.
     - Block type/content map used for UI editing and write-back.
 
+- **CourseExport**
+  - Represents a course export request and its lifecycle for downloadable SCORM output.
+  - Important meaning fields:
+    - Export format selection (SCORM 1.2 / SCORM 2004).
+    - Export processing status (pending, in progress, completed, failed).
+    - Downloadable output file details and completion/error context.
+
 ## F. Edge Cases
 
 1. **Authentication and membership edge cases**
@@ -329,6 +366,12 @@ From a business perspective, it serves four connected goals:
    - Missing slide/media path.
    - Path traversal attempts in asset retrieval.
    - Parser mismatch/unsupported package layout.
+
+7. **Course-to-SCORM export edge cases**
+   - Course contains unsupported or incomplete content blocks for export.
+   - Referenced media is missing at export time.
+   - Export request uses tracking options not valid for course content.
+   - Export package is generated but learner experience varies across LMS runtimes.
 
 ## G. External Dependencies
 
@@ -372,6 +415,8 @@ From a business perspective, it serves four connected goals:
 
 4. **SCORM flow complexity risk**
    - Multiple formats, async job lifecycle, parser-specific handling, and temp session state create high change sensitivity.
+  - Course-to-SCORM export consistency risk increases with mixed media and interactive block combinations.
+  - Different LMS runtimes can show variations if supported content is not uniformly represented.
 
 5. **Hierarchical content integrity risk**
    - Course/module/lesson/block relationships depend on strict parent existence and order constraints.
