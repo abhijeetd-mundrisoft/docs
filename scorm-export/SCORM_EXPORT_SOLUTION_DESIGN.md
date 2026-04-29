@@ -235,14 +235,14 @@ Extend existing media extraction logic; do not rewrite copy/packaging pipeline.
   2. If none found, run existing extraction logic.
   3. Merge and deduplicate file IDs using `Set<String>`.
 
-### New Extraction Rules (Phase aligned)
+### New Extraction Rules (aligned to phase plan when each block ships)
 
-- `BANNER_IMAGE` -> image `fileId`.
-- `RESOURCE_FILE` -> resource `fileId` and optional thumbnail.
-- `IMAGE_GRID` -> list of image `fileId`s.
-- `QUOTE_WITH_IMAGE` -> quote image `fileId`.
-- `AUDIO_PLAYER` -> audio `fileId`.
-- `INTERACTIVE_IMAGE` -> base image + hotspot attachment IDs.
+- `BANNER_IMAGE` -> image `fileId` (Phase 1).
+- `RESOURCE_FILE` -> resource `fileId` and optional thumbnail (Phase 1).
+- `IMAGE_GRID` -> list of image `fileId`s (Phase 2).
+- `QUOTE_WITH_IMAGE` -> quote image `fileId` (Phase 2).
+- `AUDIO_PLAYER` -> audio `fileId` (Phase 3).
+- `INTERACTIVE_IMAGE` -> base image + hotspot attachment IDs (Phase 4).
 
 ### Logging for Missing Media
 
@@ -343,18 +343,18 @@ Aligned to requirement phases with safe rollout:
 - `BULLETED_LIST`, `NUMBERED_LIST`, `CHECKBOX_LIST`, `TEXT_WITH_SUBHEADING`, `SUBHEADING_ONLY`, `SPACING`, `SECTION_BREAK`, `BANNER_IMAGE`, `RESOURCE_FILE`.
 - Add extraction rules for `BANNER_IMAGE`, `RESOURCE_FILE`.
 
-### Phase 2: Layout + interactive medium complexity
+### Phase 2: Layout + journey (static presentation)
 
-- `IMAGE_GRID`, `QUOTE_WITH_IMAGE`, `TIMELINE_VIEW`, `STEP_FLOW`, `STEP_MARKER`, `CHECKPOINT`, `ANNOUNCEMENT`, `ANNOUNCEMENT_NOTE`.
+- `IMAGE_GRID`, `QUOTE_WITH_IMAGE`, `TIMELINE_VIEW`, `STEP_FLOW`, `STEP_MARKER`, `ANNOUNCEMENT`, `ANNOUNCEMENT_NOTE`.
 
-### Phase 3: Complex interactive/custom embed
+### Phase 3: Audio, code, action buttons
 
-- `AUDIO_PLAYER`, `CODE_EXAMPLE`, `INTERACTIVE_IMAGE`, `DRAG_AND_DROP`, `SORT_AND_LEARN`, `ACTION_BUTTON`, `ACTION_BUTTON_GROUP`, `EMBED`.
+- `AUDIO_PLAYER`, `CODE_EXAMPLE`, `ACTION_BUTTON`, `ACTION_BUTTON_GROUP`.
+
+### Phase 4: Hardest blocks last (carousels, charts, interactives, checkpoint gating, embed, flash)
+
+- `QUOTE_CAROUSEL`, `IMAGE_CAROUSEL`, `BAR_CHART`, `TREND_CHAT`, `DISTRIBUTION_CHAT`, `INTERACTIVE_IMAGE`, `DRAG_AND_DROP`, `SORT_AND_LEARN`, `CHECKPOINT`, `EMBED`, `FLASH_CARDS_STACK`.
 - Introduce sanitization policy for embed content.
-
-### Phase 4: Carousel/chart/legacy harmonization
-
-- `QUOTE_CAROUSEL`, `IMAGE_CAROUSEL`, `BAR_CHART`, `TREND_CHAT`, `DISTRIBUTION_CHAT`, `FLASH_CARDS_STACK`.
 - Validate legacy alias handling for `FLASH_CARDS`.
 
 ### Release Gating per Phase

@@ -201,19 +201,20 @@ Current SCORM export has partial block coverage. Unsupported blocks produce fall
 - Add media extraction for `BANNER_IMAGE` and `RESOURCE_FILE`.
 - Add snapshot tests for rendered HTML fragments.
 
-### Phase 2 (High value interactive/layout)
+### Phase 2 (High value layout / journey — static presentation)
 
-- Implement: `IMAGE_GRID`, `QUOTE_WITH_IMAGE`, `TIMELINE_VIEW`, `STEP_FLOW`, `STEP_MARKER`, `CHECKPOINT`, `ANNOUNCEMENT`, `ANNOUNCEMENT_NOTE`.
+- Implement: `IMAGE_GRID`, `QUOTE_WITH_IMAGE`, `TIMELINE_VIEW`, `STEP_FLOW`, `STEP_MARKER`, `ANNOUNCEMENT`, `ANNOUNCEMENT_NOTE`.
 - Add/extend JS + CSS where needed.
 
-### Phase 3 (Complex interactive/custom embeds)
+### Phase 3 (Audio, code, action buttons)
 
-- Implement: `AUDIO_PLAYER`, `CODE_EXAMPLE`, `INTERACTIVE_IMAGE`, `DRAG_AND_DROP`, `SORT_AND_LEARN`, `ACTION_BUTTON`, `ACTION_BUTTON_GROUP`, `EMBED`.
+- Implement: `AUDIO_PLAYER`, `CODE_EXAMPLE`, `ACTION_BUTTON`, `ACTION_BUTTON_GROUP`.
+
+### Phase 4 (Hardest blocks last: carousels, charts, interactives, checkpoint gating, embed, flash)
+
+- Implement: `QUOTE_CAROUSEL`, `IMAGE_CAROUSEL`, `BAR_CHART`, `TREND_CHAT`, `DISTRIBUTION_CHAT`, `INTERACTIVE_IMAGE`, `DRAG_AND_DROP`, `SORT_AND_LEARN`, `CHECKPOINT`, `EMBED`, `FLASH_CARDS_STACK`.
+- **`CHECKPOINT`:** learner cannot proceed past the checkpoint until required **interactive** blocks **earlier in the lesson** are complete (runtime + SCORM + navigation); define “interactive” set and failure/degrade behavior.
 - Define sanitization and security rules for `EMBED`.
-
-### Phase 4 (Carousels/charts/legacy alignment)
-
-- Implement: `QUOTE_CAROUSEL`, `IMAGE_CAROUSEL`, `BAR_CHART`, `TREND_CHAT`, `DISTRIBUTION_CHAT`, `FLASH_CARDS_STACK`.
 - Confirm handling strategy for legacy `FLASH_CARDS` (map to `FLASH_CARDS_GRID` or dedicated renderer).
 
 ## 10. Acceptance Criteria
