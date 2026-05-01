@@ -206,13 +206,13 @@ Current SCORM export has partial block coverage. Unsupported blocks produce fall
 - Implement: `IMAGE_GRID`, `QUOTE_WITH_IMAGE`, `TIMELINE_VIEW`, `STEP_FLOW`, `STEP_MARKER`, `ANNOUNCEMENT`, `ANNOUNCEMENT_NOTE`.
 - Add/extend JS + CSS where needed.
 
-### Phase 3 (Audio, code, action buttons)
+### Phase 3 (Audio, code, carousels)
 
-- Implement: `AUDIO_PLAYER`, `CODE_EXAMPLE`, `ACTION_BUTTON`, `ACTION_BUTTON_GROUP`.
+- Implement: `AUDIO_PLAYER`, `CODE_EXAMPLE`, `QUOTE_CAROUSEL`, `IMAGE_CAROUSEL`.
 
-### Phase 4 (Hardest blocks last: carousels, charts, interactives, checkpoint gating, embed, flash)
+### Phase 4 (Hardest blocks last: action buttons, charts, interactives, checkpoint gating, embed, flash)
 
-- Implement: `QUOTE_CAROUSEL`, `IMAGE_CAROUSEL`, `BAR_CHART`, `TREND_CHAT`, `DISTRIBUTION_CHAT`, `INTERACTIVE_IMAGE`, `DRAG_AND_DROP`, `SORT_AND_LEARN`, `CHECKPOINT`, `EMBED`, `FLASH_CARDS_STACK`.
+- Implement: `ACTION_BUTTON`, `ACTION_BUTTON_GROUP`, `BAR_CHART`, `TREND_CHAT`, `DISTRIBUTION_CHAT`, `INTERACTIVE_IMAGE`, `DRAG_AND_DROP`, `SORT_AND_LEARN`, `CHECKPOINT`, `EMBED`, `FLASH_CARDS_STACK`.
 - **`CHECKPOINT`:** learner cannot proceed past the checkpoint until required **interactive** blocks **earlier in the lesson** are complete (runtime + SCORM + navigation); define “interactive” set and failure/degrade behavior.
 - Define sanitization and security rules for `EMBED`.
 - Confirm handling strategy for legacy `FLASH_CARDS` (map to `FLASH_CARDS_GRID` or dedicated renderer).

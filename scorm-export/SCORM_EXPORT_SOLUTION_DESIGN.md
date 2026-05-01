@@ -241,7 +241,9 @@ Extend existing media extraction logic; do not rewrite copy/packaging pipeline.
 - `RESOURCE_FILE` -> resource `fileId` and optional thumbnail (Phase 1).
 - `IMAGE_GRID` -> list of image `fileId`s (Phase 2).
 - `QUOTE_WITH_IMAGE` -> quote image `fileId` (Phase 2).
-- `AUDIO_PLAYER` -> audio `fileId` (Phase 3).
+- `AUDIO_PLAYER` -> top-level `fileId` in content JSON (Phase 3).
+- `IMAGE_CAROUSEL` -> each entry in `items[]`: `fileId` (and optional `url` for app UI only; export resolves packaged path from `fileId`).
+- `QUOTE_CAROUSEL` -> each entry in `quotes[]`: nested `image.fileId` (and optional `url` if present in future shapes).
 - `INTERACTIVE_IMAGE` -> base image + hotspot attachment IDs (Phase 4).
 
 ### Logging for Missing Media
@@ -347,13 +349,13 @@ Aligned to requirement phases with safe rollout:
 
 - `IMAGE_GRID`, `QUOTE_WITH_IMAGE`, `TIMELINE_VIEW`, `STEP_FLOW`, `STEP_MARKER`, `ANNOUNCEMENT`, `ANNOUNCEMENT_NOTE`.
 
-### Phase 3: Audio, code, action buttons
+### Phase 3: Audio, code, carousels
 
-- `AUDIO_PLAYER`, `CODE_EXAMPLE`, `ACTION_BUTTON`, `ACTION_BUTTON_GROUP`.
+- `AUDIO_PLAYER`, `CODE_EXAMPLE`, `QUOTE_CAROUSEL`, `IMAGE_CAROUSEL`.
 
-### Phase 4: Hardest blocks last (carousels, charts, interactives, checkpoint gating, embed, flash)
+### Phase 4: Hardest blocks last (action buttons, charts, interactives, checkpoint gating, embed, flash)
 
-- `QUOTE_CAROUSEL`, `IMAGE_CAROUSEL`, `BAR_CHART`, `TREND_CHAT`, `DISTRIBUTION_CHAT`, `INTERACTIVE_IMAGE`, `DRAG_AND_DROP`, `SORT_AND_LEARN`, `CHECKPOINT`, `EMBED`, `FLASH_CARDS_STACK`.
+- `ACTION_BUTTON`, `ACTION_BUTTON_GROUP`, `BAR_CHART`, `TREND_CHAT`, `DISTRIBUTION_CHAT`, `INTERACTIVE_IMAGE`, `DRAG_AND_DROP`, `SORT_AND_LEARN`, `CHECKPOINT`, `EMBED`, `FLASH_CARDS_STACK`.
 - Introduce sanitization policy for embed content.
 - Validate legacy alias handling for `FLASH_CARDS`.
 
