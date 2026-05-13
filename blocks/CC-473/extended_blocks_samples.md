@@ -119,13 +119,72 @@ This document provides a complete collection of sample JSON payloads for all blo
   },
   "settings": {
     "layout": {
-      "verticalSpacingTop": 100,
-      "verticalSpacingBottom": 100,
-      "verticalSpacingLinked": true
+      "contentArea": "regular",
+      "sectionSpacing": "narrow",
+      "verticalSpacingTop": 25,
+      "verticalSpacingBottom": 25,
+      "verticalSpacingLinked": true,
+      "borderRadius": 8
     },
     "background": {
-      "style": "Black"
+      "style": "Custom",
+      "customColor": {
+        "hex": "#F4A261",
+        "contrastMode": "Auto"
+      }
     }
   }
 }
 ```
+
+## 6. Table Block (`TABLE`)
+*Scenario: Wide section with cell spacing and a Custom background.*
+
+```json
+{
+  "type": "TABLE",
+  "content": {
+    "rows": 3,
+    "columns": 2,
+    "data": [
+      [
+        {"content": "<strong>Feature</strong>", "hAlign": "left", "vAlign": "middle"},
+        {"content": "<strong>Benefit</strong>", "hAlign": "left", "vAlign": "middle"}
+      ],
+      [
+        {"content": "Live Support", "hAlign": "left", "vAlign": "top"},
+        {"content": "Instant resolution of issues", "hAlign": "left", "vAlign": "top"}
+      ],
+      [
+        {"content": "Cloud Sync", "hAlign": "left", "vAlign": "top"},
+        {"content": "Access data from anywhere", "hAlign": "left", "vAlign": "top"}
+      ]
+    ],
+    "config": {
+      "hasHeaderRow": true,
+      "hasHeaderColumn": false,
+      "bordered": true
+    }
+  },
+  "settings": {
+    "layout": {
+      "contentArea": "large",
+      "sectionSpacing": "wide",
+      "verticalSpacingTop": 40,
+      "verticalSpacingBottom": 40,
+      "verticalSpacingLinked": true
+    },
+    "tableLayout": {
+      "cellSpacing": "regular"
+    },
+    "background": {
+      "style": "Custom",
+      "customColor": {
+        "hex": "#ffffff",
+        "contrastMode": "Auto"
+      }
+    }
+  }
+}
+```
+
