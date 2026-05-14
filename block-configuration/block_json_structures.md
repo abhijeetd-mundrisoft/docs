@@ -457,6 +457,34 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 
 ---
 
+### Attachment (`RESOURCE_FILE`)
+**UI Sections**: Layout, Background
+
+```json
+{
+  "type": "RESOURCE_FILE",
+  "content": {
+    "fileId": "attachment-uuid-01",
+    "displayName": "User_Manual.pdf",
+    "description": "Comprehensive guide for all system features.",
+    "allowDownload": true
+  },
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",    // Options: narrow, regular, wide
+      "verticalSpacingTop": 25,
+      "verticalSpacingBottom": 25,
+      "verticalSpacingLinked": true
+    },
+    "background": {
+      "style": "Light"
+    }
+  }
+}
+```
+
+---
+
 ### Audio Player (`AUDIO_PLAYER`)
 **UI Sections**: Layout, Playback, Background
 
