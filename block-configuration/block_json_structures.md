@@ -688,3 +688,45 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
   }
 }
 ```
+
+---
+
+## 6. Chart Blocks
+
+### Line Chart (`TREND_CHAT`)
+**UI Sections**: Chart > Layout, Chart > Heading, Chart > Style
+
+```json
+{
+  "type": "TREND_CHAT",
+  "content": {
+    "chartTitle": "Monthly Revenue Trends",
+    "xAxisLabel": "Month",
+    "yAxisLabel": "Revenue (USD)",
+    "items": [
+      { "title": "Jan", "value": 4500, "orderIndex": 1 },
+      { "title": "Feb", "value": 5200, "orderIndex": 2 },
+      { "title": "Mar", "value": 4800, "orderIndex": 3 },
+      { "title": "Apr", "value": 6100, "orderIndex": 4 }
+    ]
+  },
+  "settings": {
+    "chart": {
+      "layout": {
+        "sectionSpacing": "narrow",    // Options: narrow, regular, wide
+        "verticalSpacing": 25           // Range: 0-150
+      },
+      "heading": {
+        "titleStyle": "h2"              // Options: h1, h2, h3, h4, h5
+      },
+      "style": {
+        "chartColor": "#FF631E",        // HEX Color
+        "lineStyle": "curved"           // Options: straight, curved
+      }
+    },
+    "background": {
+      "style": "Light"                  // Options: Light, Gray, Theme, Dark, Image, Custom
+    }
+  }
+}
+```
