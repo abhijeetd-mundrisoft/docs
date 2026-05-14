@@ -487,6 +487,42 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 
 ---
 
+### Video (`VIDEO`)
+**UI Sections**: Layout, Media Layout, Shape, Playback, Background
+
+```json
+{
+  "type": "VIDEO",
+  "content": {
+    "title": "Introduction to AI",
+    "description": "A brief overview of artificial intelligence.",
+    "fileId": "video-01"
+  },
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",
+      "verticalSpacingTop": 25,
+      "verticalSpacingBottom": 25,
+      "verticalSpacingLinked": true
+    },
+    "mediaLayout": {
+      "videoSize": "regular"        // Options: compact, regular, large
+    },
+    "shape": {
+      "borderRadius": 0             // Range: 0-50
+    },
+    "playback": {
+      "forwardSeeking": true        // Enable/disable forward scrubbing
+    },
+    "background": {
+      "style": "Light"
+    }
+  }
+}
+```
+
+---
+
 ### Table (`TABLE`)
 **UI Sections**: Layout, Table Layout, Background
 
