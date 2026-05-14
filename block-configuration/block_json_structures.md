@@ -523,6 +523,41 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 
 ---
 
+### Embed (`EMBED`)
+**UI Sections**: Layout, Media Layout, Border, Background
+
+```json
+{
+  "type": "EMBED",
+  "content": {
+    "originalUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "embedUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "title": "Rick Astley - Never Gonna Give You Up",
+    "showMetaData": true,
+    "resolvedBy": "RAW_IFRAME"
+  },
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",    // Options: narrow, regular, wide
+      "verticalSpacingTop": 25,
+      "verticalSpacingBottom": 25,
+      "verticalSpacingLinked": true
+    },
+    "mediaLayout": {
+      "embedSize": "regular"        // Options: compact, regular, large
+    },
+    "border": {
+      "showBorder": true            // Toggle border visibility
+    },
+    "background": {
+      "style": "Light"
+    }
+  }
+}
+```
+
+---
+
 ### Table (`TABLE`)
 **UI Sections**: Layout, Table Layout, Background
 
