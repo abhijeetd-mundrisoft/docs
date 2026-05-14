@@ -501,3 +501,33 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 
 > [!NOTE]
 > This document is updated to match the **Layout/Background nesting** schema.
+
+
+### Subheading Only (`SUBHEADING_ONLY`)
+**Scenario**: Minimalist Black background with high vertical spacing.*
+
+```json
+{
+  "type": "SUBHEADING_ONLY",
+  "content": {
+    "subheading": "Section 4: Advanced Analytics"
+  },
+  "settings": {
+    "layout": {
+      "contentArea": "regular",
+      "sectionSpacing": "narrow",
+      "verticalSpacingTop": 25,
+      "verticalSpacingBottom": 25,
+      "verticalSpacingLinked": true,
+      "borderRadius": 8
+    },
+    "background": {
+      "style": "Custom",
+      "customColor": {
+        "hex": "#F4A261",
+        "contrastMode": "Auto"
+      }
+    }
+  }
+}
+```
