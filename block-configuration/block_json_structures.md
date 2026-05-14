@@ -628,6 +628,34 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 
 ---
 
+## 5. Reference Blocks
+
+### Code Snippet (`CODE_EXAMPLE`)
+**UI Sections**: Layout, Style
+
+```json
+{
+  "type": "CODE_EXAMPLE",
+  "content": {
+    "code": "function helloWorld() {\n  console.log('Hello, world!');\n}",
+    "caption": "A simple JavaScript function."
+  },
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",    // Options: narrow, regular, wide
+      "verticalSpacingTop": 25,
+      "verticalSpacingBottom": 25,
+      "verticalSpacingLinked": true
+    },
+    "style": {
+      "codeBackgroundColor": "#FAFAFA" // Supports HEX and Theme tokens
+    }
+  }
+}
+```
+
+---
+
 > [!NOTE]
 > This document is updated to match the **Layout/Background nesting** schema.
 
