@@ -457,6 +457,36 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 
 ---
 
+### Audio Player (`AUDIO_PLAYER`)
+**UI Sections**: Layout, Playback, Background
+
+```json
+{
+  "type": "AUDIO_PLAYER",
+  "content": {
+    "fileId": "audio-01",
+    "title": "Module Overview",
+    "caption": "Listen to the introduction of this module."
+  },
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",    // Options: narrow, regular, wide
+      "verticalSpacingTop": 25,
+      "verticalSpacingBottom": 25,
+      "verticalSpacingLinked": true
+    },
+    "playback": {
+      "forwardSeeking": true        // Enable/disable forward scrubbing
+    },
+    "background": {
+      "style": "Light"
+    }
+  }
+}
+```
+
+---
+
 ### Table (`TABLE`)
 **UI Sections**: Layout, Table Layout, Background
 
