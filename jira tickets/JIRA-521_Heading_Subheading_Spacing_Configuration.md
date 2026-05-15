@@ -21,6 +21,7 @@ Implement support for configurable heading and subheading spacing for text block
 - Injected default `headingSpacing` values into the `layout` map for all affected blocks:
   - `HEADING_TEXT`, `HEADING_ONLY`: `20`.
   - `TEXT_WITH_SUBHEADING`, `SUBHEADING_ONLY`: `15`.
+- Reused the existing `layout` variable in `createSettings` to avoid compilation errors due to variable redefinition.
 - Removed separate `heading` and `subheading` object initialization.
 
 ### 3. Schema Documentation (`BlockSchemaUtil.java`)

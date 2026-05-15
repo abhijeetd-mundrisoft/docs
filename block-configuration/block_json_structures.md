@@ -301,6 +301,167 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 }
 ```
 
+### Large Text Quote (`QUOTE_LARGE_TEXT`)
+**UI Sections**: Layout, Behavior, Typography, Background
+
+```json
+{
+  "type": "QUOTE_LARGE_TEXT",
+  "content": {
+    "text": "The future belongs to those who believe in the beauty of their dreams.",
+    "author": "Eleanor Roosevelt"
+  },
+  "settings": {
+    "layout": {
+      "contentArea": "regular",         // Options: compact, regular, large
+      "sectionSpacing": "narrow",      // Options: narrow, regular, wide
+      "verticalSpacingTop": 25,        // Range: 0-150
+      "verticalSpacingBottom": 25,
+      "verticalSpacingLinked": true,
+      "quoteSpacing": 20               // Range: 0-100
+    },
+    "behavior": {
+      "showAuthor": true               // Toggle author visibility
+    },
+    "typography": {
+      "authorSize": "regular"          // Options: compact, regular, large
+    },
+    "background": {
+      "style": "Light"
+    }
+  }
+}
+```
+
+### Boxed Quote (`QUOTE_BOXED`)
+**UI Sections**: Layout, Behavior, Typography, Background
+
+```json
+{
+  "type": "QUOTE_BOXED",
+  "content": {
+    "text": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+    "author": "Winston Churchill"
+  },
+  "settings": {
+    "layout": {
+      "contentArea": "regular",
+      "sectionSpacing": "narrow",
+      "verticalSpacingTop": 25,
+      "verticalSpacingBottom": 25,
+      "verticalSpacingLinked": true,
+      "quoteSpacing": 20
+    },
+    "behavior": {
+      "showAuthor": true,
+      "showIcon": true,                 // Toggle quote icon visibility (New)
+      "iconColor": "#666666"            // Color of the quote icon (New)
+    },
+    "typography": {
+      "authorSize": "regular"
+    },
+    "background": {
+      "style": "Light"
+    }
+  }
+}
+```
+
+---
+
+### Bulleted List (`BULLETED_LIST`)
+**UI Sections**: Layout, Typography, Background
+
+```json
+{
+  "type": "BULLETED_LIST",
+  "content": {
+    "items": [
+      { "text": "First bullet item", "orderIndex": 0 },
+      { "text": "Second bullet item", "orderIndex": 1 }
+    ]
+  },
+  "settings": {
+    "layout": {
+      "contentArea": "regular",
+      "sectionSpacing": "narrow",
+      "verticalSpacingTop": 25,
+      "verticalSpacingBottom": 25,
+      "verticalSpacingLinked": true,
+      "indent": 20                   // Range: 0-100
+    },
+    "typography": {
+      "bulletColor": "#000000"       // Bullet color
+    },
+    "background": {
+      "style": "Light"
+    }
+  }
+}
+```
+
+### Numbered List (`NUMBERED_LIST`)
+**UI Sections**: Layout, Typography, Background
+
+```json
+{
+  "type": "NUMBERED_LIST",
+  "content": {
+    "items": [
+      { "text": "First numbered item", "orderIndex": 0 },
+      { "text": "Second numbered item", "orderIndex": 1 }
+    ]
+  },
+  "settings": {
+    "layout": {
+      "contentArea": "regular",
+      "sectionSpacing": "narrow",
+      "verticalSpacingTop": 25,
+      "verticalSpacingBottom": 25,
+      "verticalSpacingLinked": true,
+      "indent": 20                   // Range: 0-100
+    },
+    "typography": {
+      "bulletColor": "#000000"       // Number color
+    },
+    "background": {
+      "style": "Light"
+    }
+  }
+}
+```
+
+### Checkbox List (`CHECKBOX_LIST`)
+**UI Sections**: Layout, Typography, Background
+
+```json
+{
+  "type": "CHECKBOX_LIST",
+  "content": {
+    "items": [
+      { "text": "First checkbox item", "checked": false, "orderIndex": 0 },
+      { "text": "Second checkbox item", "checked": true, "orderIndex": 1 }
+    ]
+  },
+  "settings": {
+    "layout": {
+      "contentArea": "regular",
+      "sectionSpacing": "narrow",
+      "verticalSpacingTop": 25,
+      "verticalSpacingBottom": 25,
+      "verticalSpacingLinked": true,
+      "indent": 20                   // Range: 0-100
+    },
+    "typography": {
+      "bulletColor": "#000000"       // Checkbox color
+    },
+    "background": {
+      "style": "Light"
+    }
+  }
+}
+```
+
 ---
 
 ### Accordion (`ACCORDION`)
@@ -694,13 +855,91 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
       "verticalSpacingLinked": true
     },
     "mediaLayout": {
-      "videoSize": "regular"        // Options: compact, regular, large
+      "videoWidth": "regular"        // Options: compact, regular, large
     },
     "shape": {
       "borderRadius": 0             // Range: 0-50
     },
     "playback": {
       "forwardSeeking": true        // Enable/disable forward scrubbing
+    },
+    "background": {
+      "style": "Light"
+    }
+  }
+}
+```
+
+---
+
+### Video text bottom (`VIDEO_TEXT_BOTTOM`)
+**UI Sections**: Layout, Media Layout, Shape, Playback, Background
+
+```json
+{
+  "type": "VIDEO_TEXT_BOTTOM",
+  "content": {
+    "video": {
+      "title": "Module Overview",
+      "fileId": "video-uuid-001"
+    },
+    "text": "<p>This is the description text that appears above or below the video.</p>"
+  },
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",      // Options: narrow, regular, wide
+      "verticalSpacingTop": 25,        // Range: 0-120
+      "verticalSpacingBottom": 25,
+      "verticalSpacingLinked": true
+    },
+    "mediaLayout": {
+      "videoWidth": "regular",          // Options: compact, regular, large
+      "videoPosition": "top"         // Options: left, right, top, bottom
+    },
+    "shape": {
+      "borderRadius": 0                // Range: 0-30
+    },
+    "playback": {
+      "forwardSeeking": true           // Toggle forward scrubbing
+    },
+    "background": {
+      "style": "Light"
+    }
+  }
+}
+```
+
+---
+
+### Text video bottom (`TEXT_VIDEO_BOTTOM`)
+**UI Sections**: Layout, Media Layout, Shape, Playback, Background
+
+```json
+{
+  "type": "TEXT_VIDEO_BOTTOM",
+  "content": {
+    "text": "<p>This is the description text that appears above or below the video.</p>",
+    "video": {
+      "title": "Module Overview",
+      "fileId": "video-uuid-001"
+    }
+  },
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",      // Options: narrow, regular, wide
+      "verticalSpacingTop": 25,        // Range: 0-120
+      "verticalSpacingBottom": 25,
+      "verticalSpacingLinked": true
+    },
+    "mediaLayout": {
+      "videoWidth": "regular",          // Options: compact, regular, large
+      "videoPosition": "bottom"         // Options: left, right, top, bottom
+    },
+    "shape": {
+      "borderRadius": 0                // Range: 0-30
+    },
+    "playback": {
+      "forwardSeeking": true           // Toggle forward scrubbing
     },
     "background": {
       "style": "Light"
@@ -1162,7 +1401,7 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
       "verticalSpacingLinked": true
     },
     "mediaLayout": {
-      "videoSize": "regular",          // Options: compact, regular, large
+      "videoWidth": "regular",          // Options: compact, regular, large
       "videoPosition": "right"         // Options: left, right
     },
     "shape": {
@@ -1200,7 +1439,7 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
       "verticalSpacingLinked": true
     },
     "mediaLayout": {
-      "videoSize": "regular",          // Options: compact, regular, large
+      "videoWidth": "regular",          // Options: compact, regular, large
       "videoPosition": "left"          // Options: left, right
     },
     "shape": {

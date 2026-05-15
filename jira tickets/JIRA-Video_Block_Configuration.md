@@ -8,7 +8,7 @@ Extend standard `VIDEO` block functionality to support granular layout configura
 * **Schema Evolution**: Updated `BlockSchemaUtil` to define `mediaLayout` and `shape` setting groups, ensuring AI generation and backend documentation are aligned with new capabilities.
 * **Validation Integration**: Enabled comprehensive validation for the `VIDEO` block type in `BlockContentValidator`. This includes:
     * `layout`: `sectionSpacing` (enum) and `verticalSpacing` (numeric range 0-150).
-    * `mediaLayout`: `videoSize` (enum: compact, regular, large).
+    * `mediaLayout`: `videoWidth` (enum: compact, regular, large).
     * `shape`: `borderRadius` (numeric range 0-50).
     * `playback`: `forwardSeeking` (boolean restriction).
 * **Factory Defaults**: Updated `BlockContentFactory` to automatically initialize new `VIDEO` blocks with standard configuration defaults, ensuring immediate consistency without manual authoring effort.
@@ -31,7 +31,7 @@ Extend standard `VIDEO` block functionality to support granular layout configura
       "verticalSpacingLinked": true
     },
     "mediaLayout": {
-      "videoSize": "regular"
+      "videoWidth": "regular"
     },
     "shape": {
       "borderRadius": 0
@@ -45,7 +45,7 @@ Extend standard `VIDEO` block functionality to support granular layout configura
 
 ## Worklog Entries
 * Added layout, mediaLayout, shape, and playback configuration support for VIDEO blocks.
-* Implemented videoSize validation and default media container styling support.
+* Implemented videoWidth validation and default media container styling support.
 * Extended common styling logic to support borderRadius configuration handling for video shapes.
 * Updated validation and factory logic for default style and enum validation handling.
 * Added Video block settings to AI schema and documented video styling configuration.
