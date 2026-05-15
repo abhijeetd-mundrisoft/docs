@@ -764,4 +764,37 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
   }
 }
 ```
+
+---
+
+## 7. Layout & Flow Blocks
+
+### Continue / Checkpoint (`CHECKPOINT`)
+**UI Sections**: Layout, Button
+
+```json
+{
+  "type": "CHECKPOINT",
+  "content": {
+    "buttonText": "Continue",
+    "completionType": "ALL",           // Options: NONE, PREVIOUS, ALL
+    "locked": true,
+    "hintText": "Please complete all blocks above to continue."
+  },
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",      // Options: narrow, regular, wide
+      "verticalSpacingTop": 25,        // Range: 0-150
+      "verticalSpacingBottom": 25,
+      "verticalSpacingLinked": true
+    },
+    "button": {
+      "buttonSize": "regular",         // Options: compact, regular, large
+      "buttonSizeValue": 760,          // Range: 100-960
+      "buttonColor": "#FF631E",        // HEX Color
+      "roundedCorners": 0              // Range: 0-50
+    }
+  }
+}
+```
 ```
