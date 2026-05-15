@@ -300,6 +300,163 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 
 ---
 
+### Accordion (`ACCORDION`)
+
+```json
+{
+  "id": "accordion-001",
+  "type": "ACCORDION",
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",
+      "verticalSpacingTop": 25,
+      "verticalSpacingBottom": 25,
+      "verticalSpacingLinked": true
+    },
+    "heading": {
+      "headingStyle": "H2"
+    },
+    "behavior": {
+      "expansionMode": "single_open"
+    }
+  },
+  "content": [
+    {
+      "title": "What is Artificial Intelligence?",
+      "content": "Artificial Intelligence refers to systems capable of performing tasks that normally require human intelligence.",
+      "orderIndex": 1,
+      "iconStyle": "Arrow",
+      "iconPosition": "Right"
+    },
+    {
+      "title": "What is Machine Learning?",
+      "content": "Machine Learning is a subset of AI focused on learning patterns from data.",
+      "orderIndex": 2,
+      "iconStyle": "Arrow",
+      "iconPosition": "Right"
+    }
+  ]
+}
+```
+
+### Tabs (`TAB`)
+
+```json
+{
+  "id": "tabs-001",
+  "type": "TAB",
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",
+      "verticalSpacing": 25
+    },
+    "interaction": {
+      "openImageOnClick": true
+    }
+  },
+  "content": [
+    {
+      "title": "Overview",
+      "content": "<p>Tab content here</p>",
+      "orderIndex": 1,
+      "images": [
+        {
+          "url": "https://example.com/image1.png",
+          "alt": "Overview image"
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Labeled Graphic (`INTERACTIVE_IMAGE`)
+
+```json
+{
+  "id": "labeled-graphic-001",
+  "type": "INTERACTIVE_IMAGE",
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",
+      "verticalSpacing": 25
+    },
+    "mediaLayout": {
+      "imageSize": "compact"
+    },
+    "style": {
+      "markerColor": "#FFFFFF"
+    },
+    "shape": {
+      "roundedCorners": 0
+    },
+    "interaction": {
+      "openImageOnClick": true
+    }
+  },
+  "content": {
+    "backgroundImage": {
+      "fileId": "labeled-graphic-bg-001",
+      "altText": "Interactive labeled graphic background"
+    },
+    "markers": [
+      {
+        "id": "marker-1",
+        "x": 35,
+        "y": 42,
+        "title": "Feature A",
+        "description": "Description for Feature A"
+      }
+    ]
+  }
+}
+```
+
+### Process (`STEP_FLOW`)
+
+```json
+{
+  "id": "process-block-001",
+  "type": "STEP_FLOW",
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",
+      "verticalSpacing": 25
+    },
+    "heading": {
+      "headingStyle": "H2"
+    },
+    "label": {
+      "showStepLabel": true,
+      "stepLabelText": "Step"
+    },
+    "interaction": {
+      "openImageOnClick": true
+    }
+  },
+  "content": [
+    {
+      "type": "intro",
+      "title": "Introduction",
+      "description": "<p>Overview of the process</p>",
+      "isHidden": false,
+      "orderIndex": 1
+    },
+    {
+      "type": "step",
+      "title": "Prepare Ingredients",
+      "description": "<p>Collect all required materials before starting.</p>",
+      "isHidden": false,
+      "orderIndex": 2,
+      "image": {
+        "url": "https://example.com/process-step-1.png",
+        "alt": "Ingredients preparation"
+      }
+    }
+  ]
+}
+```
+
 ---
 
 ## 4. Media Blocks
@@ -659,6 +816,188 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 > [!NOTE]
 > This document is updated to match the **Layout/Background nesting** schema.
 
+## 6. Layout Blocks
+
+### Section Break (`SECTION_BREAK`)
+**UI Sections**: Layout
+
+```json
+{
+  "type": "SECTION_BREAK",
+  "content": {
+    "style": "solid"                // Options: solid, dashed
+  },
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",    // Options: narrow, regular, wide
+      "verticalSpacing": 25          // Linked top/bottom spacing (0-150)
+    }
+  }
+}
+```
+
+### Numbered Divider / Step Marker (`STEP_MARKER`)
+
+```json id="v59oq5"
+{
+  "id": "step-marker-001",
+  "type": "STEP_MARKER",
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",
+      "verticalSpacing": 25
+    },
+    "numbering": {
+      "restartSequence": true,
+      "restartAt": 1
+    }
+  },
+  "content": {}
+}
+```
+
+### Spacer / Spacing (`SPACING`)
+
+```json id="8l8j4o"
+{
+  "id": "spacer-block-001",
+  "type": "SPACING",
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",
+      "verticalSpacing": 25
+    }
+  },
+  "content": {
+    "height": "medium"
+  }
+}
+```
+
+---
+
+### Multiple Choice Knowledge Check (`MULTIPLE_CHOICE`)
+
+```json id="5dly98"
+{
+  "id": "multiple-choice-001",
+  "type": "MULTIPLE_CHOICE",
+  "settings": {
+    "layout": {
+      "contentArea": "regular",
+      "sectionSpacing": "narrow",
+      "verticalSpacing": 25
+    },
+    "feedbackStyle": {
+      "correctAnswerColor": "#FF631E",
+      "incorrectAnswerColor": "#000000"
+    }
+  },
+  "content": {
+    "question": "What is the capital of France?",
+    "options": [
+      "Berlin",
+      "Madrid",
+      "Paris",
+      "Rome"
+    ],
+    "correctAnswer": 2
+  }
+}
+```
+
+---
+
+### Multiple Response Knowledge Check (`MULTIPLE_RESPONSE`)
+
+```json id="j6a9pd"
+{
+  "id": "multiple-response-001",
+  "type": "MULTIPLE_RESPONSE",
+  "settings": {
+    "layout": {
+      "contentArea": "regular",
+      "sectionSpacing": "narrow",
+      "verticalSpacing": 25
+    },
+    "feedbackStyle": {
+      "correctAnswerColor": "#FF631E",
+      "incorrectAnswerColor": "#000000"
+    }
+  },
+  "content": {
+    "question": "Which of the following are programming languages?",
+    "options": [
+      "Java",
+      "HTML",
+      "Python",
+      "CSS"
+    ],
+    "correctAnswers": [0, 2]
+  }
+}
+```
+
+### Fill in the Blank Knowledge Check (`FILL_IN_THE_BLANK`)
+
+```json id="r1v2pz"
+{
+  "id": "fill-in-the-blank-001",
+  "type": "FILL_IN_THE_BLANK",
+  "settings": {
+    "layout": {
+      "contentArea": "regular",
+      "sectionSpacing": "narrow",
+      "verticalSpacing": 25
+    },
+    "feedbackStyle": {
+      "correctAnswerColor": "#FF631E",
+      "incorrectAnswerColor": "#000000"
+    }
+  },
+  "content": {
+    "question": "The capital of France is ____.",
+    "answers": [
+      "Paris"
+    ]
+  }
+}
+```
+
+### Matching Knowledge Check (`MATCHING`)
+
+```json id="m2t3ch"
+{
+  "id": "matching-001",
+  "type": "MATCHING",
+  "settings": {
+    "layout": {
+      "contentArea": "regular",
+      "sectionSpacing": "narrow",
+      "verticalSpacing": 25
+    },
+    "feedbackStyle": {
+      "correctAnswerColor": "#FF631E",
+      "incorrectAnswerColor": "#000000"
+    }
+  },
+  "content": {
+    "question": "Match the countries with their capitals.",
+    "pairs": [
+      {
+        "left": "France",
+        "right": "Paris"
+      },
+      {
+        "left": "Japan",
+        "right": "Tokyo"
+      }
+    ]
+  }
+}
+```
+
+---
 
 ### Subheading Only (`SUBHEADING_ONLY`)
 **Scenario**: Minimalist Black background with high vertical spacing.*
