@@ -673,18 +673,16 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 {
   "type": "TWO_COLUMN_IMAGE",
   "content": {
-    "items": [
-      {
-        "fileId": "image-col-1",
-        "altText": "Left feature",
-        "caption": "Our Design"
-      },
-      {
-        "fileId": "image-col-2",
-        "altText": "Right feature",
-        "caption": "Our Technology"
-      }
-    ]
+    "image1": {
+      "fileId": "image-col-1",
+      "altText": "Left feature",
+      "caption": "Our Design"
+    },
+    "image2": {
+      "fileId": "image-col-2",
+      "altText": "Right feature",
+      "caption": "Our Technology"
+    }
   },
   "settings": {
     "layout": {
@@ -714,11 +712,9 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 {
   "type": "THREE_COLUMN_IMAGE",
   "content": {
-    "items": [
-      { "fileId": "img-1", "altText": "Feature 1" },
-      { "fileId": "img-2", "altText": "Feature 2" },
-      { "fileId": "img-3", "altText": "Feature 3" }
-    ]
+    "image1": { "fileId": "img-1", "altText": "Feature 1" },
+    "image2": { "fileId": "img-2", "altText": "Feature 2" },
+    "image3": { "fileId": "img-3", "altText": "Feature 3" }
   },
   "settings": {
     "layout": {
@@ -748,12 +744,10 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 {
   "type": "IMAGE_GRID",
   "content": {
-    "items": [
-      { "fileId": "img-1", "altText": "Item 1" },
-      { "fileId": "img-2", "altText": "Item 2" },
-      { "fileId": "img-3", "altText": "Item 3" },
-      { "fileId": "img-4", "altText": "Item 4" }
-    ]
+    "image1": { "fileId": "img-1", "altText": "Item 1" },
+    "image2": { "fileId": "img-2", "altText": "Item 2" },
+    "image3": { "fileId": "img-3", "altText": "Item 3" },
+    "image4": { "fileId": "img-4", "altText": "Item 4" }
   },
   "settings": {
     "layout": {
