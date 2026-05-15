@@ -1136,4 +1136,44 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
   }
 }
 ```
+
+---
+
+## 8. Media & Text Layout Blocks
+
+### Video text right (`VIDEO_TEXT_RIGHT`)
+**UI Sections**: Layout, Media Layout, Shape, Playback, Background
+
+```json
+{
+  "type": "VIDEO_TEXT_RIGHT",
+  "content": {
+    "video": {
+      "title": "Module Overview",
+      "fileId": "video-uuid-001"
+    },
+    "text": "<p>This is the description text that appears to the left of the video in the desktop layout.</p>"
+  },
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",      // Options: narrow, regular, wide
+      "verticalSpacingTop": 25,        // Range: 0-120
+      "verticalSpacingBottom": 25,
+      "verticalSpacingLinked": true
+    },
+    "mediaLayout": {
+      "videoSize": "regular",          // Options: compact, regular, large
+      "videoPosition": "right"         // Options: left, right
+    },
+    "shape": {
+      "borderRadius": 0                // Range: 0-30
+    },
+    "playback": {
+      "forwardSeeking": true           // Toggle forward scrubbing
+    },
+    "background": {
+      "style": "Light"
+    }
+  }
+}
 ```
