@@ -1177,3 +1177,41 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
   }
 }
 ```
+---
+
+### Video text Left (`TEXT_VIDEO_LEFT`)
+**UI Sections**: Layout, Media Layout, Shape, Playback, Background
+
+```json
+{
+  "type": "TEXT_VIDEO_LEFT",
+  "content": {
+    "text": "<p>This is the description text that appears to the left of the video in the desktop layout.</p>",
+    "video": {
+      "title": "Module Overview",
+      "fileId": "video-uuid-001"
+    }
+  },
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",      // Options: narrow, regular, wide
+      "verticalSpacingTop": 25,        // Range: 0-120
+      "verticalSpacingBottom": 25,
+      "verticalSpacingLinked": true
+    },
+    "mediaLayout": {
+      "videoSize": "regular",          // Options: compact, regular, large
+      "videoPosition": "left"          // Options: left, right
+    },
+    "shape": {
+      "borderRadius": 0                // Range: 0-30
+    },
+    "playback": {
+      "forwardSeeking": true           // Toggle forward scrubbing
+    },
+    "background": {
+      "style": "Light"
+    }
+  }
+}
+```

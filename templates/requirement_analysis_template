@@ -1,0 +1,83 @@
+# 📑 Requirement Analysis Template
+
+**Background**  
+- Current functionality: [Describe existing behavior]  
+- Acceptance Criteria (AC): [Describe new requirement/change]  
+- AC Statement:  
+  *“Given [condition], when [action], then [expected outcome].”*  
+
+**Expected Result**  
+- [Summarize the expected system behavior after change]  
+
+---
+
+### 1. Impact Assessment  
+- Identify all modules and subsystems affected by this change.  
+- Highlight dependencies and integration points across backend services.  
+- Assess potential impact on other modules.  
+
+### 2. Code Change Specification  
+- Outline required modifications in a logical flow:  
+  - Data model updates  
+  - Service layer changes  
+  - API adjustments  
+- Always use proper **import statements** for required classes and interfaces instead of referencing them through direct package directory paths.  
+- Use existing code first; create new code only if required, maintaining consistency with current architecture and standards.  
+
+### 3. Data Representation  
+- Provide a sample **JSON structure** for the updated entity/type.  
+- Define mandatory vs. optional attributes, ensuring compatibility with existing definitions.  
+
+**Example JSON Skeleton**:
+```json
+{
+  "entityType": "SampleEntity",
+  "attributes": {
+    "id": "string",
+    "title": "string",
+    "subheading": "string (optional)",
+    "paragraph": "string (mandatory)",
+    "metadata": {
+      "createdBy": "string",
+      "createdAt": "datetime"
+    }
+  }
+}
+```
+
+### 4. CRUD Operations  
+- Specify implementation of **Create, Read, Update, Delete** for the updated functionality.  
+- Detail persistence layer changes and validation rules.  
+
+### 5. Implementation Plan  
+- Step‑by‑step rollout strategy:  
+  1. Development  
+  2. Unit testing  
+  3. Integration testing  
+  4. Deployment  
+- Include rollback strategies and backward compatibility considerations.  
+
+### 6. Frontend Exclusion  
+- Explicitly discard any frontend/UI changes from this analysis.  
+
+### 7. API Impact Analysis  
+- List all API endpoints impacted by this change.  
+- Specify endpoints requiring modifications to support CRUD operations and updated functionality.  
+
+### 8. Documentation Reference  
+- Consult documentation in the `/ai` folder before finalizing analysis.  
+
+---
+
+**Deliverable**  
+A detailed technical response covering:  
+- Functional specification  
+- Module‑level impact  
+- Logical flow of code changes  
+- JSON schema definition  
+- CRUD operation design  
+- API endpoint modifications  
+- Implementation roadmap  
+- Potential impact on other modules  
+
+-------------------------------------------------------

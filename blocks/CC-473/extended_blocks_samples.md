@@ -187,4 +187,3 @@ This document provides a complete collection of sample JSON payloads for all blo
   }
 }
 ```
-

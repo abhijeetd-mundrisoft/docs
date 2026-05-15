@@ -1,0 +1,47 @@
+Instruction:  
+Please create a new folder in the /docs repository with the naming convention:
+
+{requirement-specific-title}
+
+Inside this folder, prepare two documentation files:
+
+functional_context.md
+
+Describe the requirement in detail.
+
+Capture current functionality vs. expected functionality.
+
+Include acceptance criteria and expected results.
+
+Identify all modules that will be affected by this change.
+
+Specify which folder (module name) in /docs this functionality is related to.
+
+Discard any frontend/UI changes from this analysis.
+
+technical_context.md
+
+Outline required code changes in a logical flow (e.g., data model → service layer → API).
+
+Always use proper import statements for required classes and interfaces instead of referencing them through direct package directory paths.
+
+Use existing code first; create new code only if required, maintaining consistency.
+
+Provide a sample JSON structure for the updated entity/type.
+
+Specify CRUD operation handling and persistence layer changes.
+
+Suggest an implementation plan with clear steps (development → testing → deployment → rollback strategy).
+
+List out the API endpoints impacted by this change, and specify which require code modifications.
+
+Refer to the documentation available in the /ai folder before finalizing the analysis.
+
+Include both technical details and potential impact on other modules.
+
+✅ Deliverable:  
+A well‑structured folder in /docs containing:
+
+functional_context.md (requirement overview, AC, module impact, related module folder)
+
+technical_context.md (code changes, JSON schema, CRUD, API impact, implementation plan, consistency rules)
