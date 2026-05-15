@@ -1027,3 +1027,113 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
   }
 }
 ```
+
+---
+
+## 6. Chart Blocks
+
+### Line Chart (`TREND_CHAT`)
+**UI Sections**: Chart > Layout, Chart > Heading, Chart > Style
+
+```json
+{
+  "type": "TREND_CHAT",
+  "content": {
+    "chartTitle": "Monthly Revenue Trends",
+    "xAxisLabel": "Month",
+    "yAxisLabel": "Revenue (USD)",
+    "items": [
+      { "title": "Jan", "value": 4500, "orderIndex": 1 },
+      { "title": "Feb", "value": 5200, "orderIndex": 2 },
+      { "title": "Mar", "value": 4800, "orderIndex": 3 },
+      { "title": "Apr", "value": 6100, "orderIndex": 4 }
+    ]
+  },
+  "settings": {
+    "chart": {
+      "layout": {
+        "sectionSpacing": "narrow",    // Options: narrow, regular, wide
+        "verticalSpacing": 25           // Range: 0-150
+      },
+      "heading": {
+        "titleStyle": "h2"              // Options: h1, h2, h3, h4, h5
+      },
+      "style": {
+        "chartColor": "#FF631E",        // HEX Color
+        "lineStyle": "curved"           // Options: straight, curved
+      }
+    },
+    "background": {
+      "style": "Light"                  // Options: Light, Gray, Theme, Dark, Image, Custom
+    }
+  }
+}
+
+### Pie Chart (`DISTRIBUTION_CHAT`)
+**UI Sections**: Chart > Layout, Chart > Heading, Chart > Data Display
+
+```json
+{
+  "type": "DISTRIBUTION_CHAT",
+  "content": {
+    "chartTitle": "Market Share Distribution",
+    "items": [
+      { "title": "Product A", "value": 40, "orderIndex": 1 },
+      { "title": "Product B", "value": 30, "orderIndex": 2 },
+      { "title": "Product C", "value": 20, "orderIndex": 3 },
+      { "title": "Others", "value": 10, "orderIndex": 4 }
+    ]
+  },
+  "settings": {
+    "chart": {
+      "layout": {
+        "sectionSpacing": "narrow",    // Options: narrow, regular, wide
+        "verticalSpacing": 25           // Range: 0-150
+      },
+      "heading": {
+        "titleStyle": "h2"              // Options: h1, h2, h3, h4, h5
+      },
+      "dataDisplay": {
+        "showValuesAs": "percentage"    // Options: numeric, percentage
+      }
+    },
+    "background": {
+      "style": "Light"
+    }
+  }
+}
+```
+
+---
+
+## 7. Layout & Flow Blocks
+
+### Continue / Checkpoint (`CHECKPOINT`)
+**UI Sections**: Layout, Button
+
+```json
+{
+  "type": "CHECKPOINT",
+  "content": {
+    "buttonText": "Continue",
+    "completionType": "ALL",           // Options: NONE, PREVIOUS, ALL
+    "locked": true,
+    "hintText": "Please complete all blocks above to continue."
+  },
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",      // Options: narrow, regular, wide
+      "verticalSpacingTop": 25,        // Range: 0-150
+      "verticalSpacingBottom": 25,
+      "verticalSpacingLinked": true
+    },
+    "button": {
+      "buttonSize": "regular",         // Options: compact, regular, large
+      "buttonSizeValue": 760,          // Range: 100-960
+      "buttonColor": "#FF631E",        // HEX Color
+      "roundedCorners": 0              // Range: 0-50
+    }
+  }
+}
+```
+```
