@@ -12,17 +12,16 @@ Implement support for configurable heading and subheading spacing for text block
 ## Changes Implemented
 
 ### 1. Backend Validation (`BlockContentValidator.java`)
-- Added validation for `headingSpacing` and `subheadingSpacing` in `settings`.
+- Consolidated all heading and subheading internal spacing under the `headingSpacing` key within the `layout` object.
+- Removed the `subheadingSpacing` key to maintain a unified configuration schema.
 - Range: `0-100`.
-- Added `validateSubheadingSettings` method.
-- Updated `validateHeadingSettings` to support spacing.
-- Added 4 new unit tests covering valid/invalid spacing values.
+- Added/Updated unit tests covering valid/invalid `headingSpacing` values in `layout`.
 
 ### 2. Factory Defaults (`BlockContentFactory.java`)
-- Injected default values for new spacing settings:
-  - `headingSpacing`: `20` (Default for HEADING_TEXT, HEADING_ONLY).
-  - `subheadingSpacing`: `15` (Default for TEXT_WITH_SUBHEADING, SUBHEADING_ONLY).
-- Added `headingStyle` (H2) and `titleStyle` (H3) defaults.
+- Injected default `headingSpacing` values into the `layout` map for all affected blocks:
+  - `HEADING_TEXT`, `HEADING_ONLY`: `20`.
+  - `TEXT_WITH_SUBHEADING`, `SUBHEADING_ONLY`: `15`.
+- Removed separate `heading` and `subheading` object initialization.
 
 ### 3. Schema Documentation (`BlockSchemaUtil.java`)
 - Added `heading` and `subheading` objects to `sharedSettings`.

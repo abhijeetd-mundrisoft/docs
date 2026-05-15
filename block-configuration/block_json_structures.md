@@ -32,7 +32,7 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 ```
 
 ### Heading with Text (`HEADING_TEXT`)
-**UI Sections**: Layout, Heading, Background
+**UI Sections**: Layout, Background
 
 ```json
 {
@@ -48,10 +48,7 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
       "verticalSpacingTop": 50,
       "verticalSpacingBottom": 50,
       "verticalSpacingLinked": true,
-      "borderRadius": 12
-    },
-    "heading": {
-      "headingStyle": "H2",
+      "borderRadius": 12,
       "headingSpacing": 20
     },
     "background": {
@@ -68,7 +65,7 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 ```
 
 ### Heading Only (`HEADING_ONLY`)
-**UI Sections**: Layout, Heading, Background
+**UI Sections**: Layout, Background
 
 ```json
 {
@@ -82,10 +79,7 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
       "sectionSpacing": "narrow",
       "verticalSpacingTop": 80,
       "verticalSpacingBottom": 20,
-      "verticalSpacingLinked": false
-    },
-    "heading": {
-      "headingStyle": "H1",
+      "verticalSpacingLinked": false,
       "headingSpacing": 0
     },
     "background": {
@@ -100,7 +94,7 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 ```
 
 ### Text with Subheading (`TEXT_WITH_SUBHEADING`)
-**UI Sections**: Layout, Subheading, Background
+**UI Sections**: Layout, Background
 
 ```json
 {
@@ -115,11 +109,8 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
       "sectionSpacing": "regular",
       "verticalSpacingTop": 30,
       "verticalSpacingBottom": 30,
-      "verticalSpacingLinked": true
-    },
-    "subheading": {
-      "titleStyle": "H3",
-      "subheadingSpacing": 15
+      "verticalSpacingLinked": true,
+      "headingSpacing": 15
     },
     "background": {
       "style": "Light"
@@ -1012,7 +1003,7 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 ---
 
 ### Subheading Only (`SUBHEADING_ONLY`)
-**UI Sections**: Layout, Subheading, Background
+**UI Sections**: Layout, Background
 
 ```json
 {
@@ -1027,11 +1018,8 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
       "verticalSpacingTop": 25,
       "verticalSpacingBottom": 25,
       "verticalSpacingLinked": true,
-      "borderRadius": 8
-    },
-    "subheading": {
-      "titleStyle": "H3",
-      "subheadingSpacing": 0
+      "borderRadius": 8,
+      "headingSpacing": 0
     },
     "background": {
       "style": "Black"
