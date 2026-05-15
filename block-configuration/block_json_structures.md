@@ -32,7 +32,7 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 ```
 
 ### Heading with Text (`HEADING_TEXT`)
-**UI Sections**: Layout, Background
+**UI Sections**: Layout, Heading, Background
 
 ```json
 {
@@ -50,6 +50,10 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
       "verticalSpacingLinked": true,
       "borderRadius": 12
     },
+    "heading": {
+      "headingStyle": "H2",
+      "headingSpacing": 20
+    },
     "background": {
       "style": "Image",
       "image": {
@@ -64,7 +68,7 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 ```
 
 ### Heading Only (`HEADING_ONLY`)
-**UI Sections**: Layout, Background
+**UI Sections**: Layout, Heading, Background
 
 ```json
 {
@@ -80,6 +84,10 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
       "verticalSpacingBottom": 20,
       "verticalSpacingLinked": false
     },
+    "heading": {
+      "headingStyle": "H1",
+      "headingSpacing": 0
+    },
     "background": {
       "style": "Custom",
       "customColor": {
@@ -92,7 +100,7 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 ```
 
 ### Text with Subheading (`TEXT_WITH_SUBHEADING`)
-**UI Sections**: Layout, Background
+**UI Sections**: Layout, Subheading, Background
 
 ```json
 {
@@ -108,6 +116,10 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
       "verticalSpacingTop": 30,
       "verticalSpacingBottom": 30,
       "verticalSpacingLinked": true
+    },
+    "subheading": {
+      "titleStyle": "H3",
+      "subheadingSpacing": 15
     },
     "background": {
       "style": "Light"
@@ -1000,7 +1012,7 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 ---
 
 ### Subheading Only (`SUBHEADING_ONLY`)
-**Scenario**: Minimalist Black background with high vertical spacing.*
+**UI Sections**: Layout, Subheading, Background
 
 ```json
 {
@@ -1017,12 +1029,12 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
       "verticalSpacingLinked": true,
       "borderRadius": 8
     },
+    "subheading": {
+      "titleStyle": "H3",
+      "subheadingSpacing": 0
+    },
     "background": {
-      "style": "Custom",
-      "customColor": {
-        "hex": "#F4A261",
-        "contrastMode": "Auto"
-      }
+      "style": "Black"
     }
   }
 }
