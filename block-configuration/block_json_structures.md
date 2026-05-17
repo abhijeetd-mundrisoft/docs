@@ -48,8 +48,12 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
       "verticalSpacingTop": 50,
       "verticalSpacingBottom": 50,
       "verticalSpacingLinked": true,
+<<<<<<< Updated upstream
       "borderRadius": 12,
       "headingSpacing": 20
+=======
+      "borderRadius": 12
+>>>>>>> Stashed changes
     },
     "background": {
       "style": "Image",
@@ -79,8 +83,12 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
       "sectionSpacing": "narrow",
       "verticalSpacingTop": 80,
       "verticalSpacingBottom": 20,
+<<<<<<< Updated upstream
       "verticalSpacingLinked": false,
       "headingSpacing": 0
+=======
+      "verticalSpacingLinked": false
+>>>>>>> Stashed changes
     },
     "background": {
       "style": "Custom",
@@ -109,8 +117,12 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
       "sectionSpacing": "regular",
       "verticalSpacingTop": 30,
       "verticalSpacingBottom": 30,
+<<<<<<< Updated upstream
       "verticalSpacingLinked": true,
       "headingSpacing": 15
+=======
+      "verticalSpacingLinked": true
+>>>>>>> Stashed changes
     },
     "background": {
       "style": "Light"
@@ -503,6 +515,38 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 }
 ```
 
+### Scenario (`SCENARIO`)
+
+```json
+{
+  "id": "scenario-block-001",
+  "type": "SCENARIO",
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",
+      "verticalSpacing": 25
+    },
+    "heading": {
+      "headingStyle": "H2"
+    }
+  },
+  "content": {
+    "title": "Customer Support Escalation",
+    "description": "A customer reports an issue with delayed shipment and requests escalation.",
+    "scenarios": [
+      {
+        "heading": "Initial Response",
+        "text": "Support agent acknowledges the issue and gathers order details."
+      },
+      {
+        "heading": "Escalation Handling",
+        "text": "Issue is escalated to logistics for expedited investigation."
+      }
+    ]
+  }
+}
+```
+
 ### Tabs (`TAB`)
 
 ```json
@@ -673,16 +717,18 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 {
   "type": "TWO_COLUMN_IMAGE",
   "content": {
-    "image1": {
-      "fileId": "image-col-1",
-      "altText": "Left feature",
-      "caption": "Our Design"
-    },
-    "image2": {
-      "fileId": "image-col-2",
-      "altText": "Right feature",
-      "caption": "Our Technology"
-    }
+    "items": [
+      {
+        "fileId": "image-col-1",
+        "altText": "Left feature",
+        "caption": "Our Design"
+      },
+      {
+        "fileId": "image-col-2",
+        "altText": "Right feature",
+        "caption": "Our Technology"
+      }
+    ]
   },
   "settings": {
     "layout": {
@@ -712,9 +758,11 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 {
   "type": "THREE_COLUMN_IMAGE",
   "content": {
-    "image1": { "fileId": "img-1", "altText": "Feature 1" },
-    "image2": { "fileId": "img-2", "altText": "Feature 2" },
-    "image3": { "fileId": "img-3", "altText": "Feature 3" }
+    "items": [
+      { "fileId": "img-1", "altText": "Feature 1" },
+      { "fileId": "img-2", "altText": "Feature 2" },
+      { "fileId": "img-3", "altText": "Feature 3" }
+    ]
   },
   "settings": {
     "layout": {
@@ -744,10 +792,12 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 {
   "type": "IMAGE_GRID",
   "content": {
-    "image1": { "fileId": "img-1", "altText": "Item 1" },
-    "image2": { "fileId": "img-2", "altText": "Item 2" },
-    "image3": { "fileId": "img-3", "altText": "Item 3" },
-    "image4": { "fileId": "img-4", "altText": "Item 4" }
+    "items": [
+      { "fileId": "img-1", "altText": "Item 1" },
+      { "fileId": "img-2", "altText": "Item 2" },
+      { "fileId": "img-3", "altText": "Item 3" },
+      { "fileId": "img-4", "altText": "Item 4" }
+    ]
   },
   "settings": {
     "layout": {
@@ -1255,7 +1305,11 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
       "headingSpacing": 0
     },
     "background": {
-      "style": "Black"
+      "style": "Custom",
+      "customColor": {
+        "hex": "#F4A261",
+        "contrastMode": "Auto"
+      }
     }
   }
 }
@@ -1370,22 +1424,18 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 }
 ```
 
----
-
-## 8. Media & Text Layout Blocks
-
-### Video text right (`VIDEO_TEXT_RIGHT`)
-**UI Sections**: Layout, Media Layout, Shape, Playback, Background
+### Sorting Activity (`SORTING_ACTIVITY`)
+**UI Sections**: Layout
 
 ```json
 {
   "type": "VIDEO_TEXT_RIGHT",
   "content": {
+    "text": "<p>This is the description text that appears to the right of the video in the desktop layout.</p>",
     "video": {
       "title": "Module Overview",
       "fileId": "video-uuid-001"
-    },
-    "text": "<p>This is the description text that appears to the left of the video in the desktop layout.</p>"
+    }
   },
   "settings": {
     "layout": {
@@ -1410,6 +1460,7 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
   }
 }
 ```
+
 ---
 
 ### Video text Left (`TEXT_VIDEO_LEFT`)
@@ -1447,4 +1498,32 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
     }
   }
 }
+```
+
+---
+
+### Sorting Activity (`SORTING_ACTIVITY`)
+**UI Sections**: Layout
+
+```json
+{
+  "id": "sorting-activity-001",
+  "type": "SORTING_ACTIVITY",
+  "content": {
+    "title": "Sort the Steps",
+    "items": [
+      "Analyze requirements",
+      "Implement logic",
+      "Write tests",
+      "Deploy changes"
+    ]
+  },
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",      // Options: narrow, regular, wide
+      "verticalSpacing": 25            // Range: 0-150
+    }
+  }
+}
+```
 ```
