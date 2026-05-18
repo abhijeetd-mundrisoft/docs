@@ -131,6 +131,71 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 }
 ```
 
+### Two Column Text (`TWO_COLUMN_TEXT`)
+**UI Sections**: Layout, Background
+
+```json
+{
+  "type": "TWO_COLUMN_TEXT",
+  "content": {
+    "column1": "<p>This is left column content.</p>",
+    "column2": "<p>This is right column content.</p>"
+  },
+  "settings": {
+    "layout": {
+      "sectionSpacing": {
+        "preset": "narrow"
+      },
+      "verticalSpacing": {
+        "value": 25,
+        "linked": true
+      }
+    },
+    "background": {
+      "style": "Light"
+    }
+  }
+}
+```
+
+### Three Column Text (`THREE_COLUMN_TEXT`)
+**UI Sections**: Layout, Background
+
+```json
+{
+  "type": "THREE_COLUMN_TEXT",
+  "content": {
+    "columns": [
+      {
+        "title": "Column 1",
+        "body": "<p>First column content</p>"
+      },
+      {
+        "title": "Column 2",
+        "body": "<p>Second column content</p>"
+      },
+      {
+        "title": "Column 3",
+        "body": "<p>Third column content</p>"
+      }
+    ]
+  },
+  "settings": {
+    "layout": {
+      "sectionSpacing": {
+        "preset": "narrow"
+      },
+      "verticalSpacing": {
+        "value": 25
+      }
+    },
+    "background": {
+      "style": "Light"
+    }
+  }
+}
+```
+
 ---
 
 ## 2. Announcement Blocks
