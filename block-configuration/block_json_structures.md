@@ -48,12 +48,8 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
       "verticalSpacingTop": 50,
       "verticalSpacingBottom": 50,
       "verticalSpacingLinked": true,
-<<<<<<< Updated upstream
       "borderRadius": 12,
       "headingSpacing": 20
-=======
-      "borderRadius": 12
->>>>>>> Stashed changes
     },
     "background": {
       "style": "Image",
@@ -83,12 +79,8 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
       "sectionSpacing": "narrow",
       "verticalSpacingTop": 80,
       "verticalSpacingBottom": 20,
-<<<<<<< Updated upstream
       "verticalSpacingLinked": false,
       "headingSpacing": 0
-=======
-      "verticalSpacingLinked": false
->>>>>>> Stashed changes
     },
     "background": {
       "style": "Custom",
@@ -117,12 +109,8 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
       "sectionSpacing": "regular",
       "verticalSpacingTop": 30,
       "verticalSpacingBottom": 30,
-<<<<<<< Updated upstream
       "verticalSpacingLinked": true,
       "headingSpacing": 15
-=======
-      "verticalSpacingLinked": true
->>>>>>> Stashed changes
     },
     "background": {
       "style": "Light"
