@@ -578,6 +578,182 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 }
 ```
 
+### Timeline (`TIMELINE`)
+
+```json
+{
+  "id": "timeline-001",
+  "type": "TIMELINE",
+  "content": {
+    "title": "History of Web Development",
+    "events": [
+      {
+        "title": "HTML Introduced",
+        "description": "The first version of HTML was introduced.",
+        "image": "html-history.png"
+      },
+      {
+        "title": "CSS Adoption",
+        "description": "CSS became standard for styling websites.",
+        "image": "css-history.png"
+      }
+    ]
+  },
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",
+      "verticalSpacing": 25
+    },
+    "heading": {
+      "headingStyle": "H2_H3"
+    },
+    "interaction": {
+      "openImageOnClick": true
+    }
+  }
+}
+```
+
+### Flashcard Grid (`FLASHCARD_GRID`)
+
+```json
+{
+  "id": "flashcard-grid-001",
+  "type": "FLASHCARD_GRID",
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",
+      "verticalSpacing": 25,
+      "gridSize": "auto"
+    },
+    "hint": {
+      "interactiveCardHint": true
+    }
+  },
+  "content": {
+    "cards": [
+      {
+        "front": "What is Java?",
+        "back": "A programming language."
+      },
+      {
+        "front": "What is JVM?",
+        "back": "Java Virtual Machine."
+      }
+    ]
+  }
+}
+```
+
+### Flashcard Stack (`FLASHCARD_STACK`)
+
+```json
+{
+  "id": "flashcard-stack-001",
+  "type": "FLASHCARD_STACK",
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",
+      "verticalSpacing": 25
+    },
+    "hint": {
+      "interactiveCardHint": true
+    }
+  },
+  "content": {
+    "cards": [
+      {
+        "front": "What is encapsulation?",
+        "back": "Wrapping data and methods together into a single unit."
+      },
+      {
+        "front": "What is inheritance?",
+        "back": "A mechanism where one class acquires properties of another class."
+      }
+    ]
+  }
+}
+```
+
+### Button (`BUTTON`)
+
+```json
+{
+  "type": "BUTTON",
+  "content": {
+    "label": "Start Course",
+    "description": "Click to begin the learning module.",
+    "url": "https://example.com"
+  },
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",
+      "verticalSpacing": 25,
+      "buttonPlacement": "right",
+      "buttonSize": "compact",
+      "buttonSizeValue": 170
+    },
+    "contentDisplay": {
+      "showDescriptionText": true
+    },
+    "style": {
+      "buttonColor": {
+        "type": "hex",
+        "value": "#FF631E"
+      }
+    },
+    "shape": {
+      "roundedCorners": 20
+    }
+  }
+}
+```
+
+### Button Stack (`BUTTON_STACK`)
+
+```json
+{
+  "type": "BUTTON_STACK",
+  "content": {
+    "buttons": [
+      {
+        "label": "Start Course",
+        "description": "Begin the learning module.",
+        "url": "https://example.com/start"
+      },
+      {
+        "label": "View Resources",
+        "description": "Open supporting materials.",
+        "url": "https://example.com/resources"
+      }
+    ]
+  },
+  "settings": {
+    "layout": {
+      "sectionSpacing": "narrow",
+      "verticalSpacing": 25,
+      "buttonPlacement": "right",
+      "buttonSize": "compact",
+      "buttonSizeValue": 170,
+      "buttonSpacing": "narrow",
+      "spacingValue": 25
+    },
+    "contentDisplay": {
+      "showDescriptionText": true
+    },
+    "style": {
+      "buttonColor": {
+        "type": "hex",
+        "value": "#FF631E"
+      }
+    },
+    "shape": {
+      "roundedCorners": 20
+    }
+  }
+}
+```
+
 ### Labeled Graphic (`INTERACTIVE_IMAGE`)
 
 ```json
