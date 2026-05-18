@@ -31,6 +31,30 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 }
 ```
 
+### Summary Block (`SUMMARY`)
+**UI Sections**: Layout, Background
+
+```json
+{
+  "type": "SUMMARY",
+  "content": {
+    "text": "<p>In summary, our layout and background configurations deliver a premium user experience across all devices.</p>"
+  },
+  "settings": {
+    "layout": {
+      "contentArea": "regular",       // Options: compact, regular, large
+      "sectionSpacing": "narrow",     // Options: narrow, regular, wide
+      "verticalSpacingTop": 25,       // Range: 0-120
+      "verticalSpacingBottom": 25,    // Range: 0-120
+      "verticalSpacingLinked": true
+    },
+    "background": {
+      "style": "Light"                // Options: Light, Gray, Theme, Dark, Image, Custom
+    }
+  }
+}
+```
+
 ### Heading with Text (`HEADING_TEXT`)
 **UI Sections**: Layout, Background
 
