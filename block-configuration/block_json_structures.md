@@ -1839,6 +1839,49 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 }
 ```
 
+### Bar Chart (`BAR_CHART`)
+**UI Sections**: Chart > Layout, Chart > Heading, Chart > Style, Chart > Data Display
+
+```json
+{
+  "type": "BAR_CHART",
+  "content": {
+    "chartTitle": "Quarterly Sales Visualizer",
+    "xAxisLabel": "Quarter",
+    "yAxisLabel": "Sales (USD)",
+    "items": [
+      { "title": "Q1", "value": 120.5, "orderIndex": 1 },
+      { "title": "Q2", "value": 145.2, "orderIndex": 2 },
+      { "title": "Q3", "value": 98.4, "orderIndex": 3 },
+      { "title": "Q4", "value": 180.0, "orderIndex": 4 }
+    ]
+  },
+  "settings": {
+    "chart": {
+      "layout": {
+        "contentArea": "regular",       // Options: compact, regular, large
+        "sectionSpacing": "narrow",     // Options: narrow, regular, wide
+        "verticalSpacing": 25,          // Range: 0-120 (linked top/bottom)
+        "blockPadding": 25              // Range: 0-120 (chart internal padding)
+      },
+      "heading": {
+        "headingLevel": "H2",           // Options: H1, H2, H3, H4, H5
+        "titleStyle": "default"         // Options: default, minimal, bold, accent
+      },
+      "style": {
+        "chartColor": "#FF631E"         // HEX Color
+      },
+      "dataDisplay": {
+        "showValuesAs": "numeric"       // Options: numeric, percentage
+      }
+    },
+    "background": {
+      "style": "Light"                  // Options: Light, Gray, Theme, Dark, Image, Custom
+    }
+  }
+}
+```
+
 ---
 
 ## 7. Layout & Flow Blocks
