@@ -1039,6 +1039,84 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 
 ---
 
+### Image Text Bottom Block (`IMAGE_TEXT_BOTTOM`)
+**UI Sections**: Layout, Media Layout, Shape, Interaction, Background
+
+```json
+{
+  "type": "IMAGE_TEXT_BOTTOM",
+  "content": {
+    "image": {
+      "title": "Diagram Title",
+      "fileId": "image-uuid-12345"
+    },
+    "text": "<p>Enter text here</p>"
+  },
+  "settings": {
+    "layout": {
+      "contentArea": "regular",       // Options: compact, regular, large
+      "sectionSpacing": "narrow",     // Options: narrow, regular, wide
+      "verticalSpacingTop": 25,       // Range: 0-120
+      "verticalSpacingBottom": 25,    // Range: 0-120
+      "verticalSpacingLinked": true
+    },
+    "mediaLayout": {
+      "imageSize": "regular",         // Options: compact, regular, large
+      "imagePosition": "bottom"       // Options: top, bottom (default: bottom)
+    },
+    "shape": {
+      "roundedCorners": 0             // Range: 0-30
+    },
+    "interaction": {
+      "openImageOnClick": true        // Toggle to allow zoom modal preview
+    },
+    "background": {
+      "style": "Light"                // Options: Light, Gray, Theme, Dark, Image, Custom
+    }
+  }
+}
+```
+
+### Text Image Bottom Block (`TEXT_IMAGE_BOTTOM`)
+**UI Sections**: Layout, Media Layout, Shape, Interaction, Background
+
+```json
+{
+  "type": "TEXT_IMAGE_BOTTOM",
+  "content": {
+    "text": "<p>Enter text here</p>",
+    "image": {
+      "title": "Diagram Title",
+      "fileId": "image-uuid-12345"
+    }
+  },
+  "settings": {
+    "layout": {
+      "contentArea": "regular",       // Options: compact, regular, large
+      "sectionSpacing": "narrow",     // Options: narrow, regular, wide
+      "verticalSpacingTop": 25,       // Range: 0-120
+      "verticalSpacingBottom": 25,    // Range: 0-120
+      "verticalSpacingLinked": true
+    },
+    "mediaLayout": {
+      "imageSize": "regular",         // Options: compact, regular, large
+      "imagePosition": "bottom"       // Options: top, bottom (default: bottom)
+    },
+    "shape": {
+      "roundedCorners": 0             // Range: 0-30
+    },
+    "interaction": {
+      "openImageOnClick": true        // Toggle to allow zoom modal preview
+    },
+    "background": {
+      "style": "Light"                // Options: Light, Gray, Theme, Dark, Image, Custom
+    }
+  }
+}
+```
+
+---
+
 ### Image Carousel (`IMAGE_CAROUSEL`)
 **UI Sections**: Layout, Shape, Interaction, Background
 
