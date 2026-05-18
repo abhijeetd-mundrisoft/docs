@@ -926,6 +926,119 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 }
 ```
 
+### Image Block (`IMAGE`)
+**UI Sections**: Layout, Shape, Interaction, Background
+
+```json
+{
+  "type": "IMAGE",
+  "content": {
+    "title": "Innovative Solution Diagram",
+    "description": "System architecture visualization showing components interaction.",
+    "fileId": "image-uuid-12345",
+    "altText": "Architecture Diagram"
+  },
+  "settings": {
+    "layout": {
+      "contentArea": "regular",       // Options: compact, regular, large
+      "sectionSpacing": "narrow",     // Options: narrow, regular, wide
+      "verticalSpacingTop": 25,       // Range: 0-120
+      "verticalSpacingBottom": 25,    // Range: 0-120
+      "verticalSpacingLinked": true
+    },
+    "shape": {
+      "roundedCorners": 0             // Range: 0-30
+    },
+    "interaction": {
+      "openImageOnClick": true        // Toggle to allow zoom modal preview
+    },
+    "background": {
+      "style": "Light"                // Options: Light, Gray, Theme, Dark, Image, Custom
+    }
+  }
+}
+```
+
+---
+
+### Image Text Right Block (`IMAGE_TEXT_RIGHT`)
+**UI Sections**: Layout, Media Layout, Shape, Interaction, Background
+
+```json
+{
+  "type": "IMAGE_TEXT_RIGHT",
+  "content": {
+    "image": {
+      "title": "Diagram Title",
+      "fileId": "image-uuid-12345"
+    },
+    "text": "<p>Enter text here</p>"
+  },
+  "settings": {
+    "layout": {
+      "contentArea": "regular",       // Options: compact, regular, large
+      "sectionSpacing": "narrow",     // Options: narrow, regular, wide
+      "verticalSpacingTop": 25,       // Range: 0-120
+      "verticalSpacingBottom": 25,    // Range: 0-120
+      "verticalSpacingLinked": true
+    },
+    "mediaLayout": {
+      "imageSize": "regular",         // Options: compact, regular, large
+      "imagePosition": "right"        // Options: left, right (default: right)
+    },
+    "shape": {
+      "roundedCorners": 0             // Range: 0-30
+    },
+    "interaction": {
+      "openImageOnClick": true        // Toggle to allow zoom modal preview
+    },
+    "background": {
+      "style": "Light"                // Options: Light, Gray, Theme, Dark, Image, Custom
+    }
+  }
+}
+```
+
+### Text Image Left Block (`TEXT_IMAGE_LEFT`)
+**UI Sections**: Layout, Media Layout, Shape, Interaction, Background
+
+```json
+{
+  "type": "TEXT_IMAGE_LEFT",
+  "content": {
+    "text": "<p>Enter text here</p>",
+    "image": {
+      "title": "Diagram Title",
+      "fileId": "image-uuid-12345"
+    }
+  },
+  "settings": {
+    "layout": {
+      "contentArea": "regular",       // Options: compact, regular, large
+      "sectionSpacing": "narrow",     // Options: narrow, regular, wide
+      "verticalSpacingTop": 25,       // Range: 0-120
+      "verticalSpacingBottom": 25,    // Range: 0-120
+      "verticalSpacingLinked": true
+    },
+    "mediaLayout": {
+      "imageSize": "regular",         // Options: compact, regular, large
+      "imagePosition": "left"         // Options: left, right (default: left)
+    },
+    "shape": {
+      "roundedCorners": 0             // Range: 0-30
+    },
+    "interaction": {
+      "openImageOnClick": true        // Toggle to allow zoom modal preview
+    },
+    "background": {
+      "style": "Light"                // Options: Light, Gray, Theme, Dark, Image, Custom
+    }
+  }
+}
+```
+
+---
+
 ### Image Carousel (`IMAGE_CAROUSEL`)
 **UI Sections**: Layout, Shape, Interaction, Background
 
