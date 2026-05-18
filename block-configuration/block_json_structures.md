@@ -898,6 +898,34 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 
 ## 4. Media Blocks
 
+### Banner Image (`BANNER_IMAGE`)
+**UI Sections**: Layout, Background
+
+```json
+{
+  "type": "BANNER_IMAGE",
+  "content": {
+    "image": {
+      "altText": "A scenic mountain view",
+      "fileId": "banner-uuid-1234"
+    },
+    "caption": "Figure 1: Mountain landscape"
+  },
+  "settings": {
+    "layout": {
+      "contentArea": "regular",
+      "sectionSpacing": "narrow",
+      "verticalSpacingTop": 25,
+      "verticalSpacingBottom": 25,
+      "verticalSpacingLinked": true
+    },
+    "background": {
+      "style": "Light"
+    }
+  }
+}
+```
+
 ### Image Carousel (`IMAGE_CAROUSEL`)
 **UI Sections**: Layout, Shape, Interaction, Background
 
