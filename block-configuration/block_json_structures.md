@@ -1303,7 +1303,7 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
 ## 5. Reference Blocks
 
 ### Code Snippet (`CODE_EXAMPLE`)
-**UI Sections**: Layout, Style
+**UI Sections**: Layout, Background
 
 ```json
 {
@@ -1319,8 +1319,8 @@ All blocks follow a consistent **Layout** and **Background** nesting pattern.
       "verticalSpacingBottom": 25,
       "verticalSpacingLinked": true
     },
-    "style": {
-      "codeBackgroundColor": "#FAFAFA" // Supports HEX and Theme tokens
+    "background": {
+      "style": "Light"
     }
   }
 }
