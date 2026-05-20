@@ -1,0 +1,1139 @@
+{"items": [
+          {
+            "id": "cmoty9l56002i2a769camryib",
+            "type": "interactive",
+            "items": [
+              {
+                "id": "cmoty9l57002j2a76emhuu4po",
+                "title": "Scene 1",
+                "slides": [
+                  {
+                    "id": "cmoty9l57002k2a76vtsh9gel",
+                    "goTo": "next",
+                    "type": "text",
+                    "title": "Scenario Title",
+                    "emotion": "neutral",
+                    "nextSlide": null,
+                    "responses": [
+                      
+                    ],
+                    "description": "<p>Add text to explain the situation your scenario will address.</p>",
+                    "hasCharacter": true
+                  },
+                  {
+                    "id": "cmoty9l57002l2a767hsnh9x3",
+                    "goTo": "next",
+                    "type": "dialogue",
+                    "title": null,
+                    "emotion": "neutral",
+                    "nextSlide": null,
+                    "responses": [
+                      {
+                        "id": "cmoty9l57002m2a76jpw5mcli",
+                        "goTo": "next",
+                        "action": "continue",
+                        "emotion": "happy",
+                        "feedback": "<p>Add feedback here to let learners know they got it right.</p>",
+                        "nextSlide": null,
+                        "description": "<p>Learners who choose this response will continue on.</p>"
+                      },
+                      {
+                        "id": "cmoty9l57002n2a76i98orgy5",
+                        "goTo": "next",
+                        "action": "tryAgain",
+                        "emotion": "disappointed",
+                        "feedback": "<p>Add helpful feedback here and let learners try again.</p>",
+                        "nextSlide": null,
+                        "description": "<p>Learners who choose this incorrect response will be able to try again.</p>"
+                      }
+                    ],
+                    "description": "<p>Add dialogue text here to ask your learners to make a choice, then choose your character's expression. You can create different feedback and follow-up actions for each learner response.</p>",
+                    "hasCharacter": true
+                  },
+                  {
+                    "id": "cmoty9l57002o2a76b4azf8rb",
+                    "goTo": "next",
+                    "type": "dialogue",
+                    "title": null,
+                    "emotion": "happy",
+                    "nextSlide": null,
+                    "responses": [
+                      {
+                        "id": "cmoty9l57002p2a76keiwkpxx",
+                        "goTo": "next",
+                        "action": "continue",
+                        "emotion": "happy",
+                        "feedback": null,
+                        "nextSlide": null,
+                        "description": "<p>End this scenario.</p>"
+                      },
+                      {
+                        "id": "cmoty9l57002q2a768ol94pdk",
+                        "goTo": "slide",
+                        "action": "continue",
+                        "emotion": "thinking",
+                        "feedback": null,
+                        "nextSlide": {
+                          "scene": "cmoty9l57002j2a76emhuu4po",
+                          "slide": "cmoty9l57002k2a76vtsh9gel"
+                        },
+                        "description": "<p>I want to do the scenario again.</p>"
+                      }
+                    ],
+                    "description": "<p>Add another question to your scenario here. There are many ways to branch learners based on their responses.</p>",
+                    "hasCharacter": true
+                  },
+                  {
+                    "id": "cmoty9l57002r2a76bqxe5ucs",
+                    "goTo": "end",
+                    "type": "text",
+                    "title": "Scenario End",
+                    "emotion": "happy",
+                    "nextSlide": null,
+                    "responses": [
+                      
+                    ],
+                    "description": "<p>Add text here to let learners know your scenario is over.  View <a href=\"https://ipc.articulate.com/rs/360/en/scenario-block\" rel=\"noopener noreferrer nofollow\" target=\"_blank\">this tutorial</a> to learn how to create branching scenarios.</p>",
+                    "hasCharacter": true
+                  }
+                ],
+                "character": {
+                  "id": "photo-female-00021",
+                  "src": "https://cdn.articulate.com/content-pass/uploads/00N6bJk2Br3615br/Laura-drop.png",
+                  "name": "Laura",
+                  "poses": {
+                    "angry": {
+                      "id": "350",
+                      "key": "content-pass/uploads/wsw5oEU4wDn78Lms/350_full.png",
+                      "src": "R2ZHiX_f3xLvyGdX_350_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "negative"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "angry"
+                        },
+                        {
+                          "name": "style",
+                          "value": "gesturing"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "reacting"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/xBpMJlODDf7wy6PQ/g4C9powofavfvgDK.jpg",
+                      "thumbnailKey": "content-pass/uploads/xBpMJlODDf7wy6PQ/g4C9powofavfvgDK.jpg"
+                    },
+                    "happy": {
+                      "id": "321",
+                      "key": "content-pass/uploads/KBuI275-DamggM9L/321_full.png",
+                      "src": "h-ndr8ZsXVGvFYn0_321_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "positive"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "happy"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "neutral"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/QaG8O5eRmix3xzc-/_H4r0Ga8-nAsyQ8Z.jpg",
+                      "thumbnailKey": "content-pass/uploads/QaG8O5eRmix3xzc-/_H4r0Ga8-nAsyQ8Z.jpg"
+                    },
+                    "asking": {
+                      "id": "332",
+                      "key": "content-pass/uploads/CUO5ensJ5J2a2qK6/332_full.png",
+                      "src": "JUJH8AWDeiDP-QOI_332_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "neutral"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "asking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "gesturing"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "reacting"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/1tpPt2v8ZOqeNfkh/NGBWr26do-zcUTQl.jpg",
+                      "thumbnailKey": "content-pass/uploads/1tpPt2v8ZOqeNfkh/NGBWr26do-zcUTQl.jpg"
+                    },
+                    "alarmed": {
+                      "id": "335",
+                      "key": "content-pass/uploads/vJwTKuiFRrTXGf5F/335_full.png",
+                      "src": "Q_U0sNWC8DH4OBYp_335_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "negative"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "neutral"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "alarmed"
+                        },
+                        {
+                          "name": "style",
+                          "value": "gesturing"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "reacting"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/8Cco0V47GV2gRvNd/lRc1bO7T7tOmps22.jpg",
+                      "thumbnailKey": "content-pass/uploads/8Cco0V47GV2gRvNd/lRc1bO7T7tOmps22.jpg"
+                    },
+                    "neutral": {
+                      "id": "326",
+                      "key": "content-pass/uploads/VNfNiceVpdkL4sEf/326_full.png",
+                      "src": "q9rw-7wR5NdiMRZr_326_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "positive"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "neutral"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "neutral"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/mI62plAmm_xjSqFY/EVp5dKogAVB6nMWe.jpg",
+                      "thumbnailKey": "content-pass/uploads/mI62plAmm_xjSqFY/EVp5dKogAVB6nMWe.jpg"
+                    },
+                    "talking": {
+                      "id": "328",
+                      "key": "content-pass/uploads/3A3R-NI8SDG-m96t/328_full.png",
+                      "src": "U_lFCGF-KOiKDskW_328_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "positive"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "gesturing"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "reacting"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/dzlykxNNLtn7N0Qc/j54-Zt874z_SxZyj.jpg",
+                      "thumbnailKey": "content-pass/uploads/dzlykxNNLtn7N0Qc/j54-Zt874z_SxZyj.jpg"
+                    },
+                    "worried": {
+                      "id": "343",
+                      "key": "content-pass/uploads/eqU2WKHvSYRfPef0/343_full.png",
+                      "src": "CU29PBFhTWI6tT8a_343_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "neutral"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "worried"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "neutral"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/POlB5fHAP_mCf-oG/7bS-FW01HZGE7k21.jpg",
+                      "thumbnailKey": "content-pass/uploads/POlB5fHAP_mCf-oG/7bS-FW01HZGE7k21.jpg"
+                    },
+                    "confused": {
+                      "id": "337",
+                      "key": "content-pass/uploads/HVw9cWGPwcNB_Neg/337_full.png",
+                      "src": "n54JXDU6SjBc676q_337_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "negative"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "confused"
+                        },
+                        {
+                          "name": "style",
+                          "value": "gesturing"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "reacting"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/PjgxjWOgOvq_c1iH/Yt_-YM0Od3C3RIQe.jpg",
+                      "thumbnailKey": "content-pass/uploads/PjgxjWOgOvq_c1iH/Yt_-YM0Od3C3RIQe.jpg"
+                    },
+                    "stressed": {
+                      "id": "346",
+                      "key": "content-pass/uploads/D7jtEYMc4q3CrvRk/346_full.png",
+                      "src": "F87yxWOJG7-fic0r_346_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "negative"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "neutral"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "stressed"
+                        },
+                        {
+                          "name": "style",
+                          "value": "thinking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "reacting"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/Yi1wX7vvz5xBD0c8/Jn-bgHDvfkx2fnpC.jpg",
+                      "thumbnailKey": "content-pass/uploads/Yi1wX7vvz5xBD0c8/Jn-bgHDvfkx2fnpC.jpg"
+                    },
+                    "thinking": {
+                      "id": "323",
+                      "key": "content-pass/uploads/QiPPS3n9e-0LkLty/323_full.png",
+                      "src": "Val-Pvvn5f2K0OsD_323_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "neutral"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "thinking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "thinking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/Cdk-fGFX4seedFCK/E6wSQ3esVeSl2clC.jpg",
+                      "thumbnailKey": "content-pass/uploads/Cdk-fGFX4seedFCK/E6wSQ3esVeSl2clC.jpg"
+                    },
+                    "surprised": {
+                      "id": "325",
+                      "key": "content-pass/uploads/e-uGfe46eaS9NROW/325_full.png",
+                      "src": "EeFl6nr_wy9q5snb_325_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "positive"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "surprised"
+                        },
+                        {
+                          "name": "style",
+                          "value": "gesturing"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "reacting"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/xIPqcVxwBnd8rSWN/Yb81fV2yR5AbRhqp.jpg",
+                      "thumbnailKey": "content-pass/uploads/xIPqcVxwBnd8rSWN/Yb81fV2yR5AbRhqp.jpg"
+                    },
+                    "disappointed": {
+                      "id": "340",
+                      "key": "content-pass/uploads/2-8EBpOtQH3uBXSe/340_full.png",
+                      "src": "phBjrdrV2Yi3XvMv_340_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "negative"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "neutral"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "disappointed"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "reacting"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/kKrwvOgt48PpdHTG/vbueJhHkyYr-bnqx.jpg",
+                      "thumbnailKey": "content-pass/uploads/kKrwvOgt48PpdHTG/vbueJhHkyYr-bnqx.jpg"
+                    }
+                  }
+                },
+                "background": {
+                  "media": {
+                    "image": {
+                      "key": "assets/rise/assets/block-defaults/backgrounds/hotel.jpg",
+                      "src": "Zz0JUJ/hotel.jpg",
+                      "type": "image",
+                      "thumbnail": "https://cdn.articulate.com/assets/rise/assets/block-defaults/backgrounds/hotel_thumb.jpg",
+                      "dimensions": {
+                        "originalWidth": 1680,
+                        "originalHeight": 1051
+                      },
+                      "originalUrl": "hotel.jpg",
+                      "sourcedFrom": "DEFAULT"
+                    }
+                  }
+                },
+                "blurBackground": true,
+                "slidesHaveCharacterByDefault": true
+              },
+              {
+                "id": "cmoty9w1u002y2a76hiwvtg2i",
+                "title": "Scene 1",
+                "slides": [
+                  {
+                    "id": "cmoty9w1v002z2a765f1lqkkq",
+                    "goTo": "next",
+                    "type": "text",
+                    "title": "Scenario Title",
+                    "emotion": "neutral",
+                    "nextSlide": null,
+                    "responses": [
+                      
+                    ],
+                    "description": "<p>Add text to explain the situation your scenario will address.</p>",
+                    "hasCharacter": true
+                  },
+                  {
+                    "id": "cmoty9w1v00302a76oo9cbmpa",
+                    "alt": "sdb jsnd ",
+                    "goTo": "next",
+                    "type": "dialogue",
+                    "title": null,
+                    "emotion": "neutral",
+                    "nextSlide": null,
+                    "responses": [
+                      {
+                        "id": "cmoty9w1v00312a76tir9chjd",
+                        "goTo": "next",
+                        "action": "continue",
+                        "emotion": "happy",
+                        "feedback": "<p>Add feedback here to let learners know they got it right.</p>",
+                        "nextSlide": null,
+                        "description": "<p>Learners who choose this response will continue on.</p>"
+                      },
+                      {
+                        "id": "cmoty9w1v00322a76snnblskw",
+                        "goTo": "next",
+                        "action": "tryAgain",
+                        "emotion": "surprised",
+                        "feedback": "<p>Add helpful feedback here and let learners try again.</p>",
+                        "nextSlide": null,
+                        "description": "<p>Learners who choose this incorrect response will be able to try again.</p>"
+                      }
+                    ],
+                    "description": "<p>Add dialogue text here to ask your learners to make a choice, then choose your character's expression. You can create different feedback and follow-up actions for each learner response.</p>",
+                    "hasCharacter": true
+                  },
+                  {
+                    "id": "cmoty9w1v00332a76pdqjzzea",
+                    "goTo": "next",
+                    "type": "dialogue",
+                    "title": null,
+                    "emotion": "happy",
+                    "nextSlide": null,
+                    "responses": [
+                      {
+                        "id": "cmoty9w1v00342a76bf2npcpd",
+                        "goTo": "next",
+                        "action": "continue",
+                        "emotion": "happy",
+                        "feedback": null,
+                        "nextSlide": null,
+                        "description": "<p>End this scenario.</p>"
+                      },
+                      {
+                        "id": "cmoty9w1v00352a76tpuidf0s",
+                        "goTo": "slide",
+                        "action": "continue",
+                        "emotion": "thinking",
+                        "feedback": null,
+                        "nextSlide": {
+                          "scene": "cmoty9l57002j2a76emhuu4po",
+                          "slide": "cmoty9l57002k2a76vtsh9gel"
+                        },
+                        "description": "<p>I want to do the scenario again.</p>"
+                      }
+                    ],
+                    "description": "<p>Add another question to your scenario here. There are many ways to branch learners based on their responses.</p>",
+                    "hasCharacter": true
+                  },
+                  {
+                    "id": "cmoty9w1v00362a76loaqalpq",
+                    "goTo": "end",
+                    "type": "text",
+                    "title": "Scenario End",
+                    "emotion": "happy",
+                    "nextSlide": null,
+                    "responses": [
+                      
+                    ],
+                    "description": "<p>Add text here to let learners know your scenario is over.  View <a href=\"https://ipc.articulate.com/rs/360/en/scenario-block\" rel=\"noopener noreferrer nofollow\" target=\"_blank\">this tutorial</a> to learn how to create branching scenarios.</p>",
+                    "hasCharacter": true
+                  }
+                ],
+                "character": {
+                  "id": "photo-female-00021",
+                  "src": "https://cdn.articulate.com/content-pass/uploads/00N6bJk2Br3615br/Laura-drop.png",
+                  "name": "Laura",
+                  "poses": {
+                    "angry": {
+                      "id": "350",
+                      "key": "content-pass/uploads/wsw5oEU4wDn78Lms/350_full.png",
+                      "src": "R2ZHiX_f3xLvyGdX_350_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "negative"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "angry"
+                        },
+                        {
+                          "name": "style",
+                          "value": "gesturing"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "reacting"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/xBpMJlODDf7wy6PQ/g4C9powofavfvgDK.jpg",
+                      "thumbnailKey": "content-pass/uploads/xBpMJlODDf7wy6PQ/g4C9powofavfvgDK.jpg"
+                    },
+                    "happy": {
+                      "id": "321",
+                      "key": "content-pass/uploads/KBuI275-DamggM9L/321_full.png",
+                      "src": "h-ndr8ZsXVGvFYn0_321_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "positive"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "happy"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "neutral"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/QaG8O5eRmix3xzc-/_H4r0Ga8-nAsyQ8Z.jpg",
+                      "thumbnailKey": "content-pass/uploads/QaG8O5eRmix3xzc-/_H4r0Ga8-nAsyQ8Z.jpg"
+                    },
+                    "asking": {
+                      "id": "332",
+                      "key": "content-pass/uploads/CUO5ensJ5J2a2qK6/332_full.png",
+                      "src": "JUJH8AWDeiDP-QOI_332_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "neutral"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "asking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "gesturing"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "reacting"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/1tpPt2v8ZOqeNfkh/NGBWr26do-zcUTQl.jpg",
+                      "thumbnailKey": "content-pass/uploads/1tpPt2v8ZOqeNfkh/NGBWr26do-zcUTQl.jpg"
+                    },
+                    "alarmed": {
+                      "id": "335",
+                      "key": "content-pass/uploads/vJwTKuiFRrTXGf5F/335_full.png",
+                      "src": "Q_U0sNWC8DH4OBYp_335_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "negative"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "neutral"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "alarmed"
+                        },
+                        {
+                          "name": "style",
+                          "value": "gesturing"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "reacting"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/8Cco0V47GV2gRvNd/lRc1bO7T7tOmps22.jpg",
+                      "thumbnailKey": "content-pass/uploads/8Cco0V47GV2gRvNd/lRc1bO7T7tOmps22.jpg"
+                    },
+                    "neutral": {
+                      "id": "326",
+                      "key": "content-pass/uploads/VNfNiceVpdkL4sEf/326_full.png",
+                      "src": "q9rw-7wR5NdiMRZr_326_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "positive"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "neutral"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "neutral"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/mI62plAmm_xjSqFY/EVp5dKogAVB6nMWe.jpg",
+                      "thumbnailKey": "content-pass/uploads/mI62plAmm_xjSqFY/EVp5dKogAVB6nMWe.jpg"
+                    },
+                    "talking": {
+                      "id": "328",
+                      "key": "content-pass/uploads/3A3R-NI8SDG-m96t/328_full.png",
+                      "src": "U_lFCGF-KOiKDskW_328_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "positive"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "gesturing"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "reacting"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/dzlykxNNLtn7N0Qc/j54-Zt874z_SxZyj.jpg",
+                      "thumbnailKey": "content-pass/uploads/dzlykxNNLtn7N0Qc/j54-Zt874z_SxZyj.jpg"
+                    },
+                    "worried": {
+                      "id": "343",
+                      "key": "content-pass/uploads/eqU2WKHvSYRfPef0/343_full.png",
+                      "src": "CU29PBFhTWI6tT8a_343_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "neutral"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "worried"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "neutral"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/POlB5fHAP_mCf-oG/7bS-FW01HZGE7k21.jpg",
+                      "thumbnailKey": "content-pass/uploads/POlB5fHAP_mCf-oG/7bS-FW01HZGE7k21.jpg"
+                    },
+                    "confused": {
+                      "id": "337",
+                      "key": "content-pass/uploads/HVw9cWGPwcNB_Neg/337_full.png",
+                      "src": "n54JXDU6SjBc676q_337_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "negative"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "confused"
+                        },
+                        {
+                          "name": "style",
+                          "value": "gesturing"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "reacting"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/PjgxjWOgOvq_c1iH/Yt_-YM0Od3C3RIQe.jpg",
+                      "thumbnailKey": "content-pass/uploads/PjgxjWOgOvq_c1iH/Yt_-YM0Od3C3RIQe.jpg"
+                    },
+                    "stressed": {
+                      "id": "346",
+                      "key": "content-pass/uploads/D7jtEYMc4q3CrvRk/346_full.png",
+                      "src": "F87yxWOJG7-fic0r_346_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "negative"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "neutral"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "stressed"
+                        },
+                        {
+                          "name": "style",
+                          "value": "thinking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "reacting"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/Yi1wX7vvz5xBD0c8/Jn-bgHDvfkx2fnpC.jpg",
+                      "thumbnailKey": "content-pass/uploads/Yi1wX7vvz5xBD0c8/Jn-bgHDvfkx2fnpC.jpg"
+                    },
+                    "thinking": {
+                      "id": "323",
+                      "key": "content-pass/uploads/QiPPS3n9e-0LkLty/323_full.png",
+                      "src": "Val-Pvvn5f2K0OsD_323_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "neutral"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "thinking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "thinking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/Cdk-fGFX4seedFCK/E6wSQ3esVeSl2clC.jpg",
+                      "thumbnailKey": "content-pass/uploads/Cdk-fGFX4seedFCK/E6wSQ3esVeSl2clC.jpg"
+                    },
+                    "surprised": {
+                      "id": "325",
+                      "key": "content-pass/uploads/e-uGfe46eaS9NROW/325_full.png",
+                      "src": "EeFl6nr_wy9q5snb_325_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "positive"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "surprised"
+                        },
+                        {
+                          "name": "style",
+                          "value": "gesturing"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "reacting"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/xIPqcVxwBnd8rSWN/Yb81fV2yR5AbRhqp.jpg",
+                      "thumbnailKey": "content-pass/uploads/xIPqcVxwBnd8rSWN/Yb81fV2yR5AbRhqp.jpg"
+                    },
+                    "disappointed": {
+                      "id": "340",
+                      "key": "content-pass/uploads/2-8EBpOtQH3uBXSe/340_full.png",
+                      "src": "phBjrdrV2Yi3XvMv_340_full.png",
+                      "filters": [
+                        {
+                          "name": "important",
+                          "value": "no"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "negative"
+                        },
+                        {
+                          "name": "emotion",
+                          "value": "neutral"
+                        },
+                        {
+                          "name": "rise_emotion",
+                          "value": "disappointed"
+                        },
+                        {
+                          "name": "style",
+                          "value": "talking"
+                        },
+                        {
+                          "name": "style",
+                          "value": "reacting"
+                        },
+                        {
+                          "name": "style",
+                          "value": "listening"
+                        }
+                      ],
+                      "thumbnail": "https://cdn.articulate.com/content-pass/uploads/kKrwvOgt48PpdHTG/vbueJhHkyYr-bnqx.jpg",
+                      "thumbnailKey": "content-pass/uploads/kKrwvOgt48PpdHTG/vbueJhHkyYr-bnqx.jpg"
+                    }
+                  }
+                },
+                "background": {
+                  "media": {
+                    "image": {
+                      "key": "assets/rise/assets/block-defaults/backgrounds/hotel.jpg",
+                      "src": "Zz0JUJ/hotel.jpg",
+                      "type": "image",
+                      "thumbnail": "https://cdn.articulate.com/assets/rise/assets/block-defaults/backgrounds/hotel_thumb.jpg",
+                      "dimensions": {
+                        "originalWidth": 1680,
+                        "originalHeight": 1051
+                      },
+                      "originalUrl": "hotel.jpg",
+                      "sourcedFrom": "DEFAULT"
+                    }
+                  }
+                },
+                "blurBackground": true,
+                "isNewlyInserted": true,
+                "slidesHaveCharacterByDefault": true
+              }
+            ],
+            "family": "interactive-fullscreen",
+            "variant": "scenario",
+            "settings": {
+              "mediaWidth": "1",
+              "paddingTop": 3,
+              "zoomOnClick": true,
+              "quotesInline": false,
+              "paddingBottom": 3,
+              "paddingLinked": true,
+              "backgroundColor": "#ffffff",
+              "markerColorContrast": "AUTO",
+              "snippetColorContrast": "AUTO",
+              "preventDuplicateIdGeneration": true
+            },
+            "createdAt": "2026-05-06T11:04:21.782Z",
+            "updatedAt": "2026-05-06T11:04:21.782Z",
+            "globalBlockId": "c473ae5e-010f-42d3-92fe-647608a4a973"
+          }
+        ]}

@@ -166,6 +166,8 @@ Phase 4 scope aligns with:
 
 ### 6.5 CHECKPOINT
 
+Detailed task list, file paths, and acceptance criteria: **`SCORM_EXPORT_PHASE4_CHECKPOINT_DEVELOPMENT_PLAN.md`**.
+
 - Observe prior-in-lesson interactive completion state.
 - Gate continue/next only when rules pass.
 - Define and implement timeout/error behavior to avoid permanent lockouts.

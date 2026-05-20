@@ -125,12 +125,20 @@ Supported extracted block families:
 - Audio:
   - Extracts from `media.audio`
   - Emits block type `audio` with map content (`url`)
+- Attachment (file download):
+  - Rise lesson item `type` `multimedia`, variant `attachment`, `items[].media.attachment` (`key`, `filename`, `mimeType`, `size`, `originalUrl`, …)
+  - Emits block type `attachment` with map (`url`, `filename`, `mimeType`, optional `size`, `originalUrl`). Not filtered by `includeMedia` (same as other non-audio/image blocks).
 - Interactive:
   - `accordion`
   - `tabs`
   - `flashcard`
   - `flashcardgrid`
   - Normalized in API as `accordion`, `tabs`, `flashcards`
+- Table / code (Rise `text` lesson items with variants `table` and `code`):
+  - API types `table` (content map key `html` ↔ Rise `paragraph`) and `code` (keys `code`, optional `language`)
+- Buttons (Rise `interactive` + `family` `buttons`):
+  - API types `button` and `buttonStack` (stack content map key `buttons`: list of `{label, description, destination}`)
+  - Example JSON: `course-forge-backend/src/test/resources/rise/course.json`
 
 ### Developed block types list (current)
 
@@ -146,6 +154,11 @@ This is the current list of block/component types already developed in SCORM Edi
   - `accordion`
   - `tabs`
   - `flashcards` (mapped from Rise `flashcard` / `flashcardgrid`)
+  - `table` (Rise `text` + variant `table`)
+  - `code` (Rise `text` + variant `code`)
+  - `button` (Rise `interactive` + `family` `buttons` + variant `button`)
+  - `buttonStack` (Rise `interactive` + `family` `buttons` + variant `button stack`)
+  - `attachment` (Rise `multimedia` + `media.attachment`; write-back advances index only, binary via media API)
 
 - Storyline (`StorylineParser`) - basic support
   - `heading`
@@ -158,7 +171,7 @@ This is the current list of block/component types already developed in SCORM Edi
 ### Write-back behavior
 
 - Re-opens `scormcontent/index.html`, decodes embedded Base64 JSON, mutates lesson items, re-encodes, and rewrites file.
-- Text/list/quote and supported interactive blocks are written back.
+- Text/list/quote, table/code text variants, button/button-stack interactives, supported accordion/tabs/flashcard-style interactives, and attachment lesson items are written back for block-index alignment; `attachment` / `audio` file payloads are not mutated in JSON (use media APIs).
 - `audio` blocks are consumed for block-index continuity but media JSON is not mutated in write-back; binary replacement is expected via media API.
 
 ### Rise preview/export flag
